@@ -10,7 +10,7 @@ This code is the official implementation of RecAudit.
 pip install -r requirements.txt
 ```
 
-## Why Do You Need RecAudit?
+## Why do you need RecAudit?
 
 Recommendation systems have become integral components of modern e-commerce and streaming platforms, enhancing user experience by personalizing content and product suggestions. While users benefit from personalized recommendations by allowing platforms to utilize their data in training these systems, regulations such as the General Data Protection Regulation (GDPR) uphold the user’s right to be forgotten, entitling them to request the removal of their personal data from recommendation systems at any time. However, while deleting user data from storage devices is straightforward, removing personal information from a recommendation system without retraining the model from scratch is challenging.
 
