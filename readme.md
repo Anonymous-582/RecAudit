@@ -50,4 +50,4 @@ We use the configuration files to control the data partitioning (located at RecS
 
 ### Algorithm implementation
 
-We use functions from [RecStudio](https://github.com/USTCLLM/RecStudio) to build recommendation models. All implementations of the audit algorithm reference the original paper.
+We use functions from [RecStudio](https://github.com/USTCLLM/RecStudio) to build recommendation models. All implementations of the audit algorithm are based on the original paper.
