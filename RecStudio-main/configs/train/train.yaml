@@ -1,0 +1,3 @@
+epochs: 1000
+early_stop_patience: 20
+cutoff: 10

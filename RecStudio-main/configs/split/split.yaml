@@ -1,0 +1,10 @@
+max_seq_len: 20  # Max sequence length for sequential recommendation model
+split_seed: 2023 # Seed for dataset split
+
+aux_user_split_mode: random # Auxiliary user can be random users, adult users (>30) or users who consume a lot/little
+num_aux_user: -1            # The number of auxiliary users available
+aux_retain_rate: 1.0        # Works when the auditor can only obtain some auxiliary interaction data, that is recent data
+
+neg_audit_rate: 0.5         # Rate pf negative audit users
+forget_samples_rate: 1.0    # Works when a user partially deleted data, that is some outdated data
+audit_retain_rate: 1.0      # Works when the auditor can only obtain some audit interaction data, that is recent data

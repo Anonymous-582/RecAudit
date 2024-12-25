@@ -1,0 +1,9 @@
+Wed, 25 Dec 2024 15:16:08 audit.py[line:34] INFO {'dataset': 'ml-100k', 'target_model': 'BERT4Rec', 'shadow_model': 'BERT4Rec', 'train_seed': 1, 'split_cf': 'split', 'train_cf': 'train', 'audit_cf': 'audit'}
+Wed, 25 Dec 2024 15:16:09 audit.py[line:299] INFO Method: Yeom et al., AUROC: 0.5824779909935495, FPR@10%FNR: 0.7898089171974523.
+Wed, 25 Dec 2024 15:16:09 audit.py[line:299] INFO Method: Sablayrolles et al., AUROC: 0.7302527485902065, FPR@10%FNR: 0.5477707006369427.
+Wed, 25 Dec 2024 15:16:09 audit.py[line:299] INFO Method: Watson et al., AUROC: 0.6868027100490892, FPR@10%FNR: 0.6624203821656051.
+Wed, 25 Dec 2024 15:16:09 audit.py[line:299] INFO Method: Carlini et al., AUROC: 0.6864375836747941, FPR@10%FNR: 0.7707006369426752.
+Wed, 25 Dec 2024 15:16:09 audit.py[line:299] INFO Method: Zhou et al., AUROC: 0.5802263783520629, FPR@10%FNR: 0.7834394904458599.
+Wed, 25 Dec 2024 15:16:09 audit.py[line:299] INFO Method: RecAudit, AUROC: 0.9249868148809283, FPR@10%FNR: 0.22929936305732485.
+Wed, 25 Dec 2024 15:16:09 audit.py[line:316] INFO End of the code.
+Wed, 25 Dec 2024 15:16:09 audit.py[line:317] INFO ####################################################################################################

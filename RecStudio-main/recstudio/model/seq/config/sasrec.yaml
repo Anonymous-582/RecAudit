@@ -1,0 +1,22 @@
+embed_dim: 64
+hidden_size: 128
+layer_num: 2
+head_num: 2
+
+
+
+dropout_rate: 0.5
+#dropout_rate: 0.3
+
+
+
+activation: 'gelu'
+
+#negative_count: 20 #1 
+negative_count: 1
+
+gpu: [4]
+
+
+cutoff: 10 #10
+

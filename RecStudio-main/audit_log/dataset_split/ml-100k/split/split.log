@@ -1,0 +1,25 @@
+Wed, 25 Dec 2024 15:08:55 split.py[line:287] INFO {'dataset': 'ml-100k', 'split_cf': 'split'}
+Wed, 25 Dec 2024 15:08:55 utils.py[line:224] INFO dataset is read from ../datasets/ml-100k.
+Wed, 25 Dec 2024 15:08:55 utils.py[line:38] INFO 
+Dataset Info: 
+
+==================================================
+item information: 
+field     item_id   
+type      token     
+##        1153      
+==================================================
+user information: 
+field     user_id   
+type      token     
+##        944       
+==================================================
+interaction information: 
+field     user_id   item_id   rating    timestamp 
+type      token     token     float     float     
+##        944       1153      -         -         
+==================================================
+Sparsity: 0.909832
+==================================================
+Wed, 25 Dec 2024 15:08:58 split.py[line:113] INFO Number of training users: 314; Number of audit users: 314; Number of auxiliary users: 315
+Wed, 25 Dec 2024 15:08:58 split.py[line:367] INFO End of the code.

@@ -1,0 +1,9 @@
+classifier_avg_mode: mean
+mia_data_mode: mean
+mia_batch_size: 512
+mia_epochs: 500
+mia_fea_start: 64
+extra_num_features: 3
+mia_lr: 0.001
+mia_val_check: 1
+mia_hidden_size: [64, 32, 8]

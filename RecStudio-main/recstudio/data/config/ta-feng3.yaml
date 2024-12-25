@@ -1,0 +1,46 @@
+url: "../datasets/ta-feng3"
+# user_id_field: &u customer_id:token # TODO: comments for &u and *u
+# item_id_field: &i product_id:token
+# rating_field: &r amount:float
+# time_field: &t transaction_date:float
+user_id_field: &u user_id:token # TODO: comments for &u and *u
+item_id_field: &i item_id:token
+rating_field: &r rating:float
+time_field: &t timestamp:float
+time_format: ~
+
+
+inter_feat_name: ta-feng3.inter
+inter_feat_field: [*u, *i, *r, *t]
+inter_feat_header: 0
+
+user_feat_name: [ta-feng3.user]
+user_feat_field: [[*u]]
+user_feat_header: 0
+
+
+item_feat_name: [ta-feng3.item]
+item_feat_field: [[*i]]
+item_feat_header: 0
+
+
+field_separator: "\t"
+min_user_inter: 0
+min_item_inter: 0
+field_max_len: ~
+rating_threshold: ~
+ranker_rating_threshold: 3
+drop_low_rating: ~
+max_seq_len: 20
+
+# network feature, including soci al network and knowledge graph, the first two fields are remapped the corresponding features
+network_feat_name: ~ #[[social.txt], [ta-feng.kg, ta-feng.link]]
+mapped_feat_field: [*u, *i]
+network_feat_field: [[[source_id:token, target_id:token]], [[head_id:token, tail_id:token, relation_id:token], [*i, entity_id:token]]]
+network_feat_header: [0, 0]
+
+save_cache: False # whether to save processed dataset to cache.
+
+# model stealing
+lamda1: 0.5
+lamda2: 0.5

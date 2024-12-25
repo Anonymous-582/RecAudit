@@ -1,0 +1,398 @@
+Wed, 25 Dec 2024 15:09:00 shadow.py[line:150] INFO {'dataset': 'ml-100k', 'model': 'BERT4Rec', 'split_seed': 14, 'gpu': 4, 'split_cf': 'split', 'train_cf': 'train'}
+Wed, 25 Dec 2024 15:09:00 utils.py[line:224] INFO dataset is read from ../datasets/ml-100k.
+Wed, 25 Dec 2024 15:09:01 utils.py[line:38] INFO 
+Dataset Info: 
+
+==================================================
+item information: 
+field     item_id   
+type      token     
+##        1153      
+==================================================
+user information: 
+field     user_id   
+type      token     
+##        944       
+==================================================
+interaction information: 
+field     user_id   item_id   rating    timestamp 
+type      token     token     float     float     
+##        944       1153      -         -         
+==================================================
+Sparsity: 0.909832
+==================================================
+Wed, 25 Dec 2024 15:09:02 utils.py[line:297] INFO Global seed set to 2019
+Wed, 25 Dec 2024 15:09:02 utils.py[line:62] INFO 
+Model Config: 
+
+accelerator=gpu
+activation=gelu
+ann=None
+batch_size=1024
+cutoff=10
+dataset_neg_count=None
+dataset_sampler=None
+dropout=0.2
+early_stop_mode=max
+early_stop_patience=20
+embed_dim=64
+epochs=100
+eval_batch_size=128
+excluding_hist=False
+gpu=[4]
+head_num=2
+hidden_size=128
+item_bias=False
+layer_norm_eps=1e-12
+layer_num=2
+learner=adam
+learning_rate=0.001
+mask_ratio=0.2
+negative_count=1
+num_workers=0
+pooling_type=mask
+save_path=./saved/
+scheduler=None
+seed=2019
+split_ratio=2
+steal=False
+test_metrics=['recall', 'precision', 'map', 'ndcg', 'mrr', 'hit']
+test_repetitive=True
+topk=100
+train_repetitive=True
+val_metrics=['recall', 'ndcg']
+weight_decay=1e-05
+Wed, 25 Dec 2024 15:09:02 utils.py[line:297] INFO Global seed set to 2019
+Wed, 25 Dec 2024 15:09:02 utils.py[line:62] INFO 
+Model Config: 
+
+accelerator=gpu
+activation=gelu
+ann=None
+batch_size=1024
+cutoff=10
+dataset_neg_count=None
+dataset_sampler=None
+dropout=0.2
+early_stop_mode=max
+early_stop_patience=20
+embed_dim=64
+epochs=100
+eval_batch_size=128
+excluding_hist=False
+gpu=[4]
+head_num=2
+hidden_size=128
+item_bias=False
+layer_norm_eps=1e-12
+layer_num=2
+learner=adam
+learning_rate=0.001
+mask_ratio=0.2
+negative_count=1
+num_workers=0
+pooling_type=mask
+save_path=./saved/
+scheduler=None
+seed=2019
+split_ratio=2
+steal=False
+test_metrics=['recall', 'precision', 'map', 'ndcg', 'mrr', 'hit']
+test_repetitive=True
+topk=100
+train_repetitive=True
+val_metrics=['recall', 'ndcg']
+weight_decay=1e-05
+Wed, 25 Dec 2024 15:09:02 recommender.py[line:128] INFO save_dir:/data1/home/zhihao/code/RecAudit/open-source/RecAudit/RecStudio-main
+Wed, 25 Dec 2024 15:09:02 recommender.py[line:131] INFO BERT4Rec(
+  (loss_fn): SoftmaxLoss()
+  (score_func): InnerProductScorer()
+  (item_encoder): Embedding(1154, 64, padding_idx=0)
+  (query_encoder): BERT4RecQueryEncoder(
+    (item_encoder): Embedding(1154, 64, padding_idx=0)
+    (position_emb): Embedding(20, 64)
+    (transformer_layer): TransformerEncoder(
+      (layers): ModuleList(
+        (0): TransformerEncoderLayer(
+          (self_attn): MultiheadAttention(
+            (out_proj): NonDynamicallyQuantizableLinear(in_features=64, out_features=64, bias=True)
+          )
+          (linear1): Linear(in_features=64, out_features=128, bias=True)
+          (dropout): Dropout(p=0.2, inplace=False)
+          (linear2): Linear(in_features=128, out_features=64, bias=True)
+          (norm1): LayerNorm((64,), eps=1e-12, elementwise_affine=True)
+          (norm2): LayerNorm((64,), eps=1e-12, elementwise_affine=True)
+          (dropout1): Dropout(p=0.2, inplace=False)
+          (dropout2): Dropout(p=0.2, inplace=False)
+        )
+        (1): TransformerEncoderLayer(
+          (self_attn): MultiheadAttention(
+            (out_proj): NonDynamicallyQuantizableLinear(in_features=64, out_features=64, bias=True)
+          )
+          (linear1): Linear(in_features=64, out_features=128, bias=True)
+          (dropout): Dropout(p=0.2, inplace=False)
+          (linear2): Linear(in_features=128, out_features=64, bias=True)
+          (norm1): LayerNorm((64,), eps=1e-12, elementwise_affine=True)
+          (norm2): LayerNorm((64,), eps=1e-12, elementwise_affine=True)
+          (dropout1): Dropout(p=0.2, inplace=False)
+          (dropout2): Dropout(p=0.2, inplace=False)
+        )
+      )
+    )
+    (dropout): Dropout(p=0.2, inplace=False)
+    (training_pooling_layer): SeqPoolingLayer(pooling_type=mask, keepdim=False)
+    (eval_pooling_layer): SeqPoolingLayer(pooling_type=last, keepdim=False)
+  )
+)
+Wed, 25 Dec 2024 15:09:09 recommender.py[line:254] INFO Training: Epoch=  0 [recall@10=0.0637 ndcg@10=0.0316 train_loss=6.7950]
+Wed, 25 Dec 2024 15:09:09 recommender.py[line:519] INFO Train time: 1.80149s. Valid time: 1.84143s
+Wed, 25 Dec 2024 15:09:09 recommender.py[line:548] INFO recall@10 improved. Best value: 0.0637
+Wed, 25 Dec 2024 15:09:10 recommender.py[line:254] INFO Training: Epoch=  1 [recall@10=0.0701 ndcg@10=0.0442 train_loss=6.5858]
+Wed, 25 Dec 2024 15:09:10 recommender.py[line:519] INFO Train time: 1.49902s. Valid time: 1.53366s
+Wed, 25 Dec 2024 15:09:10 recommender.py[line:548] INFO recall@10 improved. Best value: 0.0701
+Wed, 25 Dec 2024 15:09:12 recommender.py[line:254] INFO Training: Epoch=  2 [recall@10=0.1338 ndcg@10=0.0742 train_loss=6.2820]
+Wed, 25 Dec 2024 15:09:12 recommender.py[line:519] INFO Train time: 1.46930s. Valid time: 1.50245s
+Wed, 25 Dec 2024 15:09:12 recommender.py[line:548] INFO recall@10 improved. Best value: 0.1338
+Wed, 25 Dec 2024 15:09:13 recommender.py[line:254] INFO Training: Epoch=  3 [recall@10=0.1497 ndcg@10=0.0779 train_loss=5.9894]
+Wed, 25 Dec 2024 15:09:13 recommender.py[line:519] INFO Train time: 1.39379s. Valid time: 1.43016s
+Wed, 25 Dec 2024 15:09:13 recommender.py[line:548] INFO recall@10 improved. Best value: 0.1497
+Wed, 25 Dec 2024 15:09:15 recommender.py[line:254] INFO Training: Epoch=  4 [recall@10=0.1433 ndcg@10=0.0778 train_loss=5.8849]
+Wed, 25 Dec 2024 15:09:15 recommender.py[line:519] INFO Train time: 1.40817s. Valid time: 1.43609s
+Wed, 25 Dec 2024 15:09:16 recommender.py[line:254] INFO Training: Epoch=  5 [recall@10=0.1306 ndcg@10=0.0662 train_loss=5.8157]
+Wed, 25 Dec 2024 15:09:16 recommender.py[line:519] INFO Train time: 1.40158s. Valid time: 1.43752s
+Wed, 25 Dec 2024 15:09:17 recommender.py[line:254] INFO Training: Epoch=  6 [recall@10=0.1338 ndcg@10=0.0692 train_loss=5.7638]
+Wed, 25 Dec 2024 15:09:17 recommender.py[line:519] INFO Train time: 1.45266s. Valid time: 1.48585s
+Wed, 25 Dec 2024 15:09:19 recommender.py[line:254] INFO Training: Epoch=  7 [recall@10=0.1561 ndcg@10=0.0773 train_loss=5.7171]
+Wed, 25 Dec 2024 15:09:19 recommender.py[line:519] INFO Train time: 1.44180s. Valid time: 1.48066s
+Wed, 25 Dec 2024 15:09:19 recommender.py[line:548] INFO recall@10 improved. Best value: 0.1561
+Wed, 25 Dec 2024 15:09:21 recommender.py[line:254] INFO Training: Epoch=  8 [recall@10=0.1752 ndcg@10=0.0838 train_loss=5.6856]
+Wed, 25 Dec 2024 15:09:21 recommender.py[line:519] INFO Train time: 1.58895s. Valid time: 1.63222s
+Wed, 25 Dec 2024 15:09:21 recommender.py[line:548] INFO recall@10 improved. Best value: 0.1752
+Wed, 25 Dec 2024 15:09:22 recommender.py[line:254] INFO Training: Epoch=  9 [recall@10=0.1656 ndcg@10=0.0804 train_loss=5.6526]
+Wed, 25 Dec 2024 15:09:22 recommender.py[line:519] INFO Train time: 1.39139s. Valid time: 1.42801s
+Wed, 25 Dec 2024 15:09:23 recommender.py[line:254] INFO Training: Epoch= 10 [recall@10=0.1720 ndcg@10=0.0794 train_loss=5.6244]
+Wed, 25 Dec 2024 15:09:23 recommender.py[line:519] INFO Train time: 1.43003s. Valid time: 1.46493s
+Wed, 25 Dec 2024 15:09:25 recommender.py[line:254] INFO Training: Epoch= 11 [recall@10=0.1752 ndcg@10=0.0850 train_loss=5.5993]
+Wed, 25 Dec 2024 15:09:25 recommender.py[line:519] INFO Train time: 1.38723s. Valid time: 1.42419s
+Wed, 25 Dec 2024 15:09:26 recommender.py[line:254] INFO Training: Epoch= 12 [recall@10=0.1561 ndcg@10=0.0863 train_loss=5.5763]
+Wed, 25 Dec 2024 15:09:26 recommender.py[line:519] INFO Train time: 1.42545s. Valid time: 1.45306s
+Wed, 25 Dec 2024 15:09:28 recommender.py[line:254] INFO Training: Epoch= 13 [recall@10=0.1815 ndcg@10=0.0890 train_loss=5.5635]
+Wed, 25 Dec 2024 15:09:28 recommender.py[line:519] INFO Train time: 1.38172s. Valid time: 1.41117s
+Wed, 25 Dec 2024 15:09:28 recommender.py[line:548] INFO recall@10 improved. Best value: 0.1815
+Wed, 25 Dec 2024 15:09:29 recommender.py[line:254] INFO Training: Epoch= 14 [recall@10=0.1815 ndcg@10=0.0923 train_loss=5.5556]
+Wed, 25 Dec 2024 15:09:29 recommender.py[line:519] INFO Train time: 1.59938s. Valid time: 1.63786s
+Wed, 25 Dec 2024 15:09:31 recommender.py[line:254] INFO Training: Epoch= 15 [recall@10=0.1783 ndcg@10=0.0921 train_loss=5.5339]
+Wed, 25 Dec 2024 15:09:31 recommender.py[line:519] INFO Train time: 1.38884s. Valid time: 1.42326s
+Wed, 25 Dec 2024 15:09:32 recommender.py[line:254] INFO Training: Epoch= 16 [recall@10=0.1720 ndcg@10=0.0873 train_loss=5.5213]
+Wed, 25 Dec 2024 15:09:32 recommender.py[line:519] INFO Train time: 1.49878s. Valid time: 1.52201s
+Wed, 25 Dec 2024 15:09:34 recommender.py[line:254] INFO Training: Epoch= 17 [recall@10=0.1624 ndcg@10=0.0872 train_loss=5.5074]
+Wed, 25 Dec 2024 15:09:34 recommender.py[line:519] INFO Train time: 1.45464s. Valid time: 1.49033s
+Wed, 25 Dec 2024 15:09:35 recommender.py[line:254] INFO Training: Epoch= 18 [recall@10=0.1592 ndcg@10=0.0841 train_loss=5.4992]
+Wed, 25 Dec 2024 15:09:35 recommender.py[line:519] INFO Train time: 1.45555s. Valid time: 1.48473s
+Wed, 25 Dec 2024 15:09:37 recommender.py[line:254] INFO Training: Epoch= 19 [recall@10=0.1561 ndcg@10=0.0880 train_loss=5.4881]
+Wed, 25 Dec 2024 15:09:37 recommender.py[line:519] INFO Train time: 1.50279s. Valid time: 1.53909s
+Wed, 25 Dec 2024 15:09:38 recommender.py[line:254] INFO Training: Epoch= 20 [recall@10=0.1656 ndcg@10=0.0862 train_loss=5.4817]
+Wed, 25 Dec 2024 15:09:38 recommender.py[line:519] INFO Train time: 1.44901s. Valid time: 1.48062s
+Wed, 25 Dec 2024 15:09:40 recommender.py[line:254] INFO Training: Epoch= 21 [recall@10=0.1624 ndcg@10=0.0860 train_loss=5.4650]
+Wed, 25 Dec 2024 15:09:40 recommender.py[line:519] INFO Train time: 1.46118s. Valid time: 1.49368s
+Wed, 25 Dec 2024 15:09:41 recommender.py[line:254] INFO Training: Epoch= 22 [recall@10=0.1720 ndcg@10=0.0911 train_loss=5.4585]
+Wed, 25 Dec 2024 15:09:41 recommender.py[line:519] INFO Train time: 1.46695s. Valid time: 1.50426s
+Wed, 25 Dec 2024 15:09:43 recommender.py[line:254] INFO Training: Epoch= 23 [recall@10=0.1720 ndcg@10=0.0925 train_loss=5.4571]
+Wed, 25 Dec 2024 15:09:43 recommender.py[line:519] INFO Train time: 1.38916s. Valid time: 1.42402s
+Wed, 25 Dec 2024 15:09:44 recommender.py[line:254] INFO Training: Epoch= 24 [recall@10=0.1720 ndcg@10=0.0868 train_loss=5.4450]
+Wed, 25 Dec 2024 15:09:44 recommender.py[line:519] INFO Train time: 1.54525s. Valid time: 1.58635s
+Wed, 25 Dec 2024 15:09:46 recommender.py[line:254] INFO Training: Epoch= 25 [recall@10=0.1879 ndcg@10=0.0972 train_loss=5.4316]
+Wed, 25 Dec 2024 15:09:46 recommender.py[line:519] INFO Train time: 1.38812s. Valid time: 1.42609s
+Wed, 25 Dec 2024 15:09:46 recommender.py[line:548] INFO recall@10 improved. Best value: 0.1879
+Wed, 25 Dec 2024 15:09:47 recommender.py[line:254] INFO Training: Epoch= 26 [recall@10=0.1720 ndcg@10=0.0921 train_loss=5.4237]
+Wed, 25 Dec 2024 15:09:47 recommender.py[line:519] INFO Train time: 1.51067s. Valid time: 1.54388s
+Wed, 25 Dec 2024 15:09:49 recommender.py[line:254] INFO Training: Epoch= 27 [recall@10=0.1624 ndcg@10=0.0863 train_loss=5.4119]
+Wed, 25 Dec 2024 15:09:49 recommender.py[line:519] INFO Train time: 1.45419s. Valid time: 1.48888s
+Wed, 25 Dec 2024 15:09:50 recommender.py[line:254] INFO Training: Epoch= 28 [recall@10=0.1752 ndcg@10=0.0881 train_loss=5.4037]
+Wed, 25 Dec 2024 15:09:50 recommender.py[line:519] INFO Train time: 1.42448s. Valid time: 1.46907s
+Wed, 25 Dec 2024 15:09:52 recommender.py[line:254] INFO Training: Epoch= 29 [recall@10=0.1783 ndcg@10=0.0918 train_loss=5.3984]
+Wed, 25 Dec 2024 15:09:52 recommender.py[line:519] INFO Train time: 1.54597s. Valid time: 1.58446s
+Wed, 25 Dec 2024 15:09:53 recommender.py[line:254] INFO Training: Epoch= 30 [recall@10=0.1688 ndcg@10=0.0899 train_loss=5.3933]
+Wed, 25 Dec 2024 15:09:53 recommender.py[line:519] INFO Train time: 1.36673s. Valid time: 1.40388s
+Wed, 25 Dec 2024 15:09:55 recommender.py[line:254] INFO Training: Epoch= 31 [recall@10=0.1656 ndcg@10=0.0909 train_loss=5.3831]
+Wed, 25 Dec 2024 15:09:55 recommender.py[line:519] INFO Train time: 1.49719s. Valid time: 1.53465s
+Wed, 25 Dec 2024 15:09:56 recommender.py[line:254] INFO Training: Epoch= 32 [recall@10=0.1656 ndcg@10=0.0921 train_loss=5.3768]
+Wed, 25 Dec 2024 15:09:56 recommender.py[line:519] INFO Train time: 1.49522s. Valid time: 1.53509s
+Wed, 25 Dec 2024 15:09:58 recommender.py[line:254] INFO Training: Epoch= 33 [recall@10=0.1688 ndcg@10=0.0935 train_loss=5.3680]
+Wed, 25 Dec 2024 15:09:58 recommender.py[line:519] INFO Train time: 1.71608s. Valid time: 1.75577s
+Wed, 25 Dec 2024 15:10:00 recommender.py[line:254] INFO Training: Epoch= 34 [recall@10=0.1752 ndcg@10=0.0951 train_loss=5.3641]
+Wed, 25 Dec 2024 15:10:00 recommender.py[line:519] INFO Train time: 1.49203s. Valid time: 1.52896s
+Wed, 25 Dec 2024 15:10:01 recommender.py[line:254] INFO Training: Epoch= 35 [recall@10=0.1688 ndcg@10=0.0918 train_loss=5.3518]
+Wed, 25 Dec 2024 15:10:01 recommender.py[line:519] INFO Train time: 1.41059s. Valid time: 1.45232s
+Wed, 25 Dec 2024 15:10:03 recommender.py[line:254] INFO Training: Epoch= 36 [recall@10=0.1847 ndcg@10=0.0938 train_loss=5.3413]
+Wed, 25 Dec 2024 15:10:03 recommender.py[line:519] INFO Train time: 1.46609s. Valid time: 1.50583s
+Wed, 25 Dec 2024 15:10:04 recommender.py[line:254] INFO Training: Epoch= 37 [recall@10=0.1688 ndcg@10=0.0930 train_loss=5.3291]
+Wed, 25 Dec 2024 15:10:04 recommender.py[line:519] INFO Train time: 1.60894s. Valid time: 1.64461s
+Wed, 25 Dec 2024 15:10:06 recommender.py[line:254] INFO Training: Epoch= 38 [recall@10=0.1656 ndcg@10=0.0875 train_loss=5.3246]
+Wed, 25 Dec 2024 15:10:06 recommender.py[line:519] INFO Train time: 1.60044s. Valid time: 1.64505s
+Wed, 25 Dec 2024 15:10:07 recommender.py[line:254] INFO Training: Epoch= 39 [recall@10=0.1688 ndcg@10=0.0904 train_loss=5.3335]
+Wed, 25 Dec 2024 15:10:07 recommender.py[line:519] INFO Train time: 1.55296s. Valid time: 1.58728s
+Wed, 25 Dec 2024 15:10:09 recommender.py[line:254] INFO Training: Epoch= 40 [recall@10=0.1529 ndcg@10=0.0914 train_loss=5.3159]
+Wed, 25 Dec 2024 15:10:09 recommender.py[line:519] INFO Train time: 1.39945s. Valid time: 1.43660s
+Wed, 25 Dec 2024 15:10:11 recommender.py[line:254] INFO Training: Epoch= 41 [recall@10=0.1656 ndcg@10=0.0917 train_loss=5.3110]
+Wed, 25 Dec 2024 15:10:11 recommender.py[line:519] INFO Train time: 1.58146s. Valid time: 1.62007s
+Wed, 25 Dec 2024 15:10:12 recommender.py[line:254] INFO Training: Epoch= 42 [recall@10=0.1624 ndcg@10=0.0899 train_loss=5.3038]
+Wed, 25 Dec 2024 15:10:12 recommender.py[line:519] INFO Train time: 1.45194s. Valid time: 1.49246s
+Wed, 25 Dec 2024 15:10:13 recommender.py[line:254] INFO Training: Epoch= 43 [recall@10=0.1529 ndcg@10=0.0861 train_loss=5.3000]
+Wed, 25 Dec 2024 15:10:13 recommender.py[line:519] INFO Train time: 1.38512s. Valid time: 1.42814s
+Wed, 25 Dec 2024 15:10:15 recommender.py[line:254] INFO Training: Epoch= 44 [recall@10=0.1783 ndcg@10=0.0916 train_loss=5.2912]
+Wed, 25 Dec 2024 15:10:15 recommender.py[line:519] INFO Train time: 1.49856s. Valid time: 1.53980s
+Wed, 25 Dec 2024 15:10:16 recommender.py[line:254] INFO Training: Epoch= 45 [recall@10=0.1656 ndcg@10=0.0866 train_loss=5.2828]
+Wed, 25 Dec 2024 15:10:16 recommender.py[line:519] INFO Train time: 1.40070s. Valid time: 1.43826s
+Wed, 25 Dec 2024 15:10:16 recommender.py[line:559] INFO Early stopped. recall@10 didn't improve for 20 epochs.
+Wed, 25 Dec 2024 15:10:16 recommender.py[line:562] INFO The best score of recall@10 is 0.1879 at 25
+Wed, 25 Dec 2024 15:10:16 recommender.py[line:730] INFO Best model checkpoiny saved in ./metadata/model_checkpoint/shadow_model/ml-100k/BERT4Rec/split/train/member_model_14.
+Wed, 25 Dec 2024 15:10:16 shadow.py[line:57] INFO Shadow model recommendation performance:
+Wed, 25 Dec 2024 15:10:16 recommender.py[line:196] INFO Testing:  [recall@10=0.1306 precision@10=0.0131 map@10=0.0506 ndcg@10=0.0690 mrr@10=0.0506 hit@10=0.1306]
+Wed, 25 Dec 2024 15:10:17 recommender.py[line:128] INFO save_dir:/data1/home/zhihao/code/RecAudit/open-source/RecAudit/RecStudio-main
+Wed, 25 Dec 2024 15:10:17 recommender.py[line:131] INFO BERT4Rec(
+  (loss_fn): SoftmaxLoss()
+  (score_func): InnerProductScorer()
+  (item_encoder): Embedding(1154, 64, padding_idx=0)
+  (query_encoder): BERT4RecQueryEncoder(
+    (item_encoder): Embedding(1154, 64, padding_idx=0)
+    (position_emb): Embedding(20, 64)
+    (transformer_layer): TransformerEncoder(
+      (layers): ModuleList(
+        (0): TransformerEncoderLayer(
+          (self_attn): MultiheadAttention(
+            (out_proj): NonDynamicallyQuantizableLinear(in_features=64, out_features=64, bias=True)
+          )
+          (linear1): Linear(in_features=64, out_features=128, bias=True)
+          (dropout): Dropout(p=0.2, inplace=False)
+          (linear2): Linear(in_features=128, out_features=64, bias=True)
+          (norm1): LayerNorm((64,), eps=1e-12, elementwise_affine=True)
+          (norm2): LayerNorm((64,), eps=1e-12, elementwise_affine=True)
+          (dropout1): Dropout(p=0.2, inplace=False)
+          (dropout2): Dropout(p=0.2, inplace=False)
+        )
+        (1): TransformerEncoderLayer(
+          (self_attn): MultiheadAttention(
+            (out_proj): NonDynamicallyQuantizableLinear(in_features=64, out_features=64, bias=True)
+          )
+          (linear1): Linear(in_features=64, out_features=128, bias=True)
+          (dropout): Dropout(p=0.2, inplace=False)
+          (linear2): Linear(in_features=128, out_features=64, bias=True)
+          (norm1): LayerNorm((64,), eps=1e-12, elementwise_affine=True)
+          (norm2): LayerNorm((64,), eps=1e-12, elementwise_affine=True)
+          (dropout1): Dropout(p=0.2, inplace=False)
+          (dropout2): Dropout(p=0.2, inplace=False)
+        )
+      )
+    )
+    (dropout): Dropout(p=0.2, inplace=False)
+    (training_pooling_layer): SeqPoolingLayer(pooling_type=mask, keepdim=False)
+    (eval_pooling_layer): SeqPoolingLayer(pooling_type=last, keepdim=False)
+  )
+)
+Wed, 25 Dec 2024 15:10:18 recommender.py[line:254] INFO Training: Epoch=  0 [recall@10=0.0381 ndcg@10=0.0172 train_loss=6.8017]
+Wed, 25 Dec 2024 15:10:18 recommender.py[line:519] INFO Train time: 1.38273s. Valid time: 1.42116s
+Wed, 25 Dec 2024 15:10:18 recommender.py[line:548] INFO recall@10 improved. Best value: 0.0381
+Wed, 25 Dec 2024 15:10:19 recommender.py[line:254] INFO Training: Epoch=  1 [recall@10=0.0730 ndcg@10=0.0423 train_loss=6.5686]
+Wed, 25 Dec 2024 15:10:19 recommender.py[line:519] INFO Train time: 1.39343s. Valid time: 1.43583s
+Wed, 25 Dec 2024 15:10:19 recommender.py[line:548] INFO recall@10 improved. Best value: 0.0730
+Wed, 25 Dec 2024 15:10:21 recommender.py[line:254] INFO Training: Epoch=  2 [recall@10=0.1175 ndcg@10=0.0584 train_loss=6.2349]
+Wed, 25 Dec 2024 15:10:21 recommender.py[line:519] INFO Train time: 1.33618s. Valid time: 1.37412s
+Wed, 25 Dec 2024 15:10:21 recommender.py[line:548] INFO recall@10 improved. Best value: 0.1175
+Wed, 25 Dec 2024 15:10:22 recommender.py[line:254] INFO Training: Epoch=  3 [recall@10=0.1397 ndcg@10=0.0647 train_loss=6.0234]
+Wed, 25 Dec 2024 15:10:22 recommender.py[line:519] INFO Train time: 1.36510s. Valid time: 1.39947s
+Wed, 25 Dec 2024 15:10:22 recommender.py[line:548] INFO recall@10 improved. Best value: 0.1397
+Wed, 25 Dec 2024 15:10:24 recommender.py[line:254] INFO Training: Epoch=  4 [recall@10=0.1302 ndcg@10=0.0585 train_loss=5.8868]
+Wed, 25 Dec 2024 15:10:24 recommender.py[line:519] INFO Train time: 1.33237s. Valid time: 1.36813s
+Wed, 25 Dec 2024 15:10:25 recommender.py[line:254] INFO Training: Epoch=  5 [recall@10=0.1175 ndcg@10=0.0566 train_loss=5.8000]
+Wed, 25 Dec 2024 15:10:25 recommender.py[line:519] INFO Train time: 1.39037s. Valid time: 1.43059s
+Wed, 25 Dec 2024 15:10:26 recommender.py[line:254] INFO Training: Epoch=  6 [recall@10=0.1302 ndcg@10=0.0626 train_loss=5.7437]
+Wed, 25 Dec 2024 15:10:26 recommender.py[line:519] INFO Train time: 1.40332s. Valid time: 1.45352s
+Wed, 25 Dec 2024 15:10:28 recommender.py[line:254] INFO Training: Epoch=  7 [recall@10=0.1556 ndcg@10=0.0765 train_loss=5.7072]
+Wed, 25 Dec 2024 15:10:28 recommender.py[line:519] INFO Train time: 1.27171s. Valid time: 1.30834s
+Wed, 25 Dec 2024 15:10:28 recommender.py[line:548] INFO recall@10 improved. Best value: 0.1556
+Wed, 25 Dec 2024 15:10:29 recommender.py[line:254] INFO Training: Epoch=  8 [recall@10=0.1492 ndcg@10=0.0762 train_loss=5.6685]
+Wed, 25 Dec 2024 15:10:29 recommender.py[line:519] INFO Train time: 1.56433s. Valid time: 1.59306s
+Wed, 25 Dec 2024 15:10:31 recommender.py[line:254] INFO Training: Epoch=  9 [recall@10=0.1714 ndcg@10=0.0817 train_loss=5.6362]
+Wed, 25 Dec 2024 15:10:31 recommender.py[line:519] INFO Train time: 1.36626s. Valid time: 1.41207s
+Wed, 25 Dec 2024 15:10:31 recommender.py[line:548] INFO recall@10 improved. Best value: 0.1714
+Wed, 25 Dec 2024 15:10:32 recommender.py[line:254] INFO Training: Epoch= 10 [recall@10=0.1714 ndcg@10=0.0825 train_loss=5.6051]
+Wed, 25 Dec 2024 15:10:32 recommender.py[line:519] INFO Train time: 1.43229s. Valid time: 1.46612s
+Wed, 25 Dec 2024 15:10:34 recommender.py[line:254] INFO Training: Epoch= 11 [recall@10=0.1651 ndcg@10=0.0790 train_loss=5.5874]
+Wed, 25 Dec 2024 15:10:34 recommender.py[line:519] INFO Train time: 1.34068s. Valid time: 1.38666s
+Wed, 25 Dec 2024 15:10:35 recommender.py[line:254] INFO Training: Epoch= 12 [recall@10=0.1714 ndcg@10=0.0827 train_loss=5.5612]
+Wed, 25 Dec 2024 15:10:35 recommender.py[line:519] INFO Train time: 1.38533s. Valid time: 1.41832s
+Wed, 25 Dec 2024 15:10:36 recommender.py[line:254] INFO Training: Epoch= 13 [recall@10=0.1619 ndcg@10=0.0818 train_loss=5.5401]
+Wed, 25 Dec 2024 15:10:36 recommender.py[line:519] INFO Train time: 1.37124s. Valid time: 1.41433s
+Wed, 25 Dec 2024 15:10:38 recommender.py[line:254] INFO Training: Epoch= 14 [recall@10=0.1619 ndcg@10=0.0807 train_loss=5.5181]
+Wed, 25 Dec 2024 15:10:38 recommender.py[line:519] INFO Train time: 1.33724s. Valid time: 1.37495s
+Wed, 25 Dec 2024 15:10:39 recommender.py[line:254] INFO Training: Epoch= 15 [recall@10=0.1651 ndcg@10=0.0896 train_loss=5.4952]
+Wed, 25 Dec 2024 15:10:39 recommender.py[line:519] INFO Train time: 1.43963s. Valid time: 1.47433s
+Wed, 25 Dec 2024 15:10:41 recommender.py[line:254] INFO Training: Epoch= 16 [recall@10=0.1841 ndcg@10=0.0933 train_loss=5.4736]
+Wed, 25 Dec 2024 15:10:41 recommender.py[line:519] INFO Train time: 1.37278s. Valid time: 1.41356s
+Wed, 25 Dec 2024 15:10:41 recommender.py[line:548] INFO recall@10 improved. Best value: 0.1841
+Wed, 25 Dec 2024 15:10:42 recommender.py[line:254] INFO Training: Epoch= 17 [recall@10=0.1810 ndcg@10=0.0871 train_loss=5.4548]
+Wed, 25 Dec 2024 15:10:42 recommender.py[line:519] INFO Train time: 1.36740s. Valid time: 1.40133s
+Wed, 25 Dec 2024 15:10:44 recommender.py[line:254] INFO Training: Epoch= 18 [recall@10=0.1937 ndcg@10=0.0930 train_loss=5.4491]
+Wed, 25 Dec 2024 15:10:44 recommender.py[line:519] INFO Train time: 1.40047s. Valid time: 1.44359s
+Wed, 25 Dec 2024 15:10:44 recommender.py[line:548] INFO recall@10 improved. Best value: 0.1937
+Wed, 25 Dec 2024 15:10:45 recommender.py[line:254] INFO Training: Epoch= 19 [recall@10=0.1778 ndcg@10=0.0837 train_loss=5.4299]
+Wed, 25 Dec 2024 15:10:45 recommender.py[line:519] INFO Train time: 1.59491s. Valid time: 1.63099s
+Wed, 25 Dec 2024 15:10:47 recommender.py[line:254] INFO Training: Epoch= 20 [recall@10=0.1778 ndcg@10=0.0921 train_loss=5.4220]
+Wed, 25 Dec 2024 15:10:47 recommender.py[line:519] INFO Train time: 1.36425s. Valid time: 1.40009s
+Wed, 25 Dec 2024 15:10:48 recommender.py[line:254] INFO Training: Epoch= 21 [recall@10=0.1937 ndcg@10=0.0891 train_loss=5.4057]
+Wed, 25 Dec 2024 15:10:48 recommender.py[line:519] INFO Train time: 1.32438s. Valid time: 1.37837s
+Wed, 25 Dec 2024 15:10:50 recommender.py[line:254] INFO Training: Epoch= 22 [recall@10=0.2063 ndcg@10=0.0964 train_loss=5.3843]
+Wed, 25 Dec 2024 15:10:50 recommender.py[line:519] INFO Train time: 1.49399s. Valid time: 1.53762s
+Wed, 25 Dec 2024 15:10:50 recommender.py[line:548] INFO recall@10 improved. Best value: 0.2063
+Wed, 25 Dec 2024 15:10:51 recommender.py[line:254] INFO Training: Epoch= 23 [recall@10=0.1810 ndcg@10=0.0938 train_loss=5.3719]
+Wed, 25 Dec 2024 15:10:51 recommender.py[line:519] INFO Train time: 1.39031s. Valid time: 1.41858s
+Wed, 25 Dec 2024 15:10:52 recommender.py[line:254] INFO Training: Epoch= 24 [recall@10=0.2095 ndcg@10=0.0940 train_loss=5.3773]
+Wed, 25 Dec 2024 15:10:52 recommender.py[line:519] INFO Train time: 1.34754s. Valid time: 1.37728s
+Wed, 25 Dec 2024 15:10:52 recommender.py[line:548] INFO recall@10 improved. Best value: 0.2095
+Wed, 25 Dec 2024 15:10:54 recommender.py[line:254] INFO Training: Epoch= 25 [recall@10=0.1841 ndcg@10=0.0868 train_loss=5.3695]
+Wed, 25 Dec 2024 15:10:54 recommender.py[line:519] INFO Train time: 1.39667s. Valid time: 1.43576s
+Wed, 25 Dec 2024 15:10:55 recommender.py[line:254] INFO Training: Epoch= 26 [recall@10=0.1905 ndcg@10=0.0927 train_loss=5.3581]
+Wed, 25 Dec 2024 15:10:55 recommender.py[line:519] INFO Train time: 1.42813s. Valid time: 1.46879s
+Wed, 25 Dec 2024 15:10:57 recommender.py[line:254] INFO Training: Epoch= 27 [recall@10=0.1810 ndcg@10=0.0900 train_loss=5.3446]
+Wed, 25 Dec 2024 15:10:57 recommender.py[line:519] INFO Train time: 1.39740s. Valid time: 1.43662s
+Wed, 25 Dec 2024 15:10:58 recommender.py[line:254] INFO Training: Epoch= 28 [recall@10=0.2000 ndcg@10=0.0995 train_loss=5.3353]
+Wed, 25 Dec 2024 15:10:58 recommender.py[line:519] INFO Train time: 1.35889s. Valid time: 1.39187s
+Wed, 25 Dec 2024 15:11:00 recommender.py[line:254] INFO Training: Epoch= 29 [recall@10=0.1968 ndcg@10=0.0947 train_loss=5.3288]
+Wed, 25 Dec 2024 15:11:00 recommender.py[line:519] INFO Train time: 1.39796s. Valid time: 1.43783s
+Wed, 25 Dec 2024 15:11:01 recommender.py[line:254] INFO Training: Epoch= 30 [recall@10=0.1937 ndcg@10=0.0980 train_loss=5.3194]
+Wed, 25 Dec 2024 15:11:01 recommender.py[line:519] INFO Train time: 1.28970s. Valid time: 1.32348s
+Wed, 25 Dec 2024 15:11:02 recommender.py[line:254] INFO Training: Epoch= 31 [recall@10=0.1905 ndcg@10=0.0958 train_loss=5.3132]
+Wed, 25 Dec 2024 15:11:02 recommender.py[line:519] INFO Train time: 1.35411s. Valid time: 1.39487s
+Wed, 25 Dec 2024 15:11:04 recommender.py[line:254] INFO Training: Epoch= 32 [recall@10=0.2000 ndcg@10=0.0993 train_loss=5.3070]
+Wed, 25 Dec 2024 15:11:04 recommender.py[line:519] INFO Train time: 1.28948s. Valid time: 1.32607s
+Wed, 25 Dec 2024 15:11:05 recommender.py[line:254] INFO Training: Epoch= 33 [recall@10=0.1937 ndcg@10=0.0977 train_loss=5.2984]
+Wed, 25 Dec 2024 15:11:05 recommender.py[line:519] INFO Train time: 1.39948s. Valid time: 1.43469s
+Wed, 25 Dec 2024 15:11:06 recommender.py[line:254] INFO Training: Epoch= 34 [recall@10=0.1905 ndcg@10=0.0978 train_loss=5.2900]
+Wed, 25 Dec 2024 15:11:06 recommender.py[line:519] INFO Train time: 1.29753s. Valid time: 1.33096s
+Wed, 25 Dec 2024 15:11:08 recommender.py[line:254] INFO Training: Epoch= 35 [recall@10=0.1968 ndcg@10=0.0969 train_loss=5.2790]
+Wed, 25 Dec 2024 15:11:08 recommender.py[line:519] INFO Train time: 1.23384s. Valid time: 1.25963s
+Wed, 25 Dec 2024 15:11:09 recommender.py[line:254] INFO Training: Epoch= 36 [recall@10=0.1968 ndcg@10=0.0962 train_loss=5.2767]
+Wed, 25 Dec 2024 15:11:09 recommender.py[line:519] INFO Train time: 1.23813s. Valid time: 1.25698s
+Wed, 25 Dec 2024 15:11:10 recommender.py[line:254] INFO Training: Epoch= 37 [recall@10=0.2032 ndcg@10=0.1010 train_loss=5.2757]
+Wed, 25 Dec 2024 15:11:10 recommender.py[line:519] INFO Train time: 1.13355s. Valid time: 1.15926s
+Wed, 25 Dec 2024 15:11:11 recommender.py[line:254] INFO Training: Epoch= 38 [recall@10=0.1937 ndcg@10=0.0923 train_loss=5.2555]
+Wed, 25 Dec 2024 15:11:11 recommender.py[line:519] INFO Train time: 1.15170s. Valid time: 1.18251s
+Wed, 25 Dec 2024 15:11:12 recommender.py[line:254] INFO Training: Epoch= 39 [recall@10=0.1873 ndcg@10=0.0924 train_loss=5.2511]
+Wed, 25 Dec 2024 15:11:12 recommender.py[line:519] INFO Train time: 1.16003s. Valid time: 1.18891s
+Wed, 25 Dec 2024 15:11:14 recommender.py[line:254] INFO Training: Epoch= 40 [recall@10=0.1937 ndcg@10=0.0944 train_loss=5.2552]
+Wed, 25 Dec 2024 15:11:14 recommender.py[line:519] INFO Train time: 1.25635s. Valid time: 1.28853s
+Wed, 25 Dec 2024 15:11:15 recommender.py[line:254] INFO Training: Epoch= 41 [recall@10=0.1746 ndcg@10=0.0946 train_loss=5.2446]
+Wed, 25 Dec 2024 15:11:15 recommender.py[line:519] INFO Train time: 1.17338s. Valid time: 1.20240s
+Wed, 25 Dec 2024 15:11:16 recommender.py[line:254] INFO Training: Epoch= 42 [recall@10=0.2000 ndcg@10=0.0970 train_loss=5.2332]
+Wed, 25 Dec 2024 15:11:16 recommender.py[line:519] INFO Train time: 1.26928s. Valid time: 1.29359s
+Wed, 25 Dec 2024 15:11:17 recommender.py[line:254] INFO Training: Epoch= 43 [recall@10=0.1968 ndcg@10=0.1023 train_loss=5.2264]
+Wed, 25 Dec 2024 15:11:17 recommender.py[line:519] INFO Train time: 1.27212s. Valid time: 1.29672s
+Wed, 25 Dec 2024 15:11:19 recommender.py[line:254] INFO Training: Epoch= 44 [recall@10=0.1937 ndcg@10=0.0950 train_loss=5.2225]
+Wed, 25 Dec 2024 15:11:19 recommender.py[line:519] INFO Train time: 1.19160s. Valid time: 1.22279s
+Wed, 25 Dec 2024 15:11:19 recommender.py[line:559] INFO Early stopped. recall@10 didn't improve for 20 epochs.
+Wed, 25 Dec 2024 15:11:19 recommender.py[line:562] INFO The best score of recall@10 is 0.2095 at 24
+Wed, 25 Dec 2024 15:11:19 recommender.py[line:730] INFO Best model checkpoiny saved in ./metadata/model_checkpoint/shadow_model/ml-100k/BERT4Rec/split/train/nonmember_model_14.
+Wed, 25 Dec 2024 15:11:19 shadow.py[line:57] INFO Shadow model recommendation performance:
+Wed, 25 Dec 2024 15:11:19 recommender.py[line:196] INFO Testing:  [recall@10=0.1556 precision@10=0.0156 map@10=0.0667 ndcg@10=0.0873 mrr@10=0.0667 hit@10=0.1556]
+Wed, 25 Dec 2024 15:11:24 shadow.py[line:292] INFO End of the code.
