@@ -255,7 +255,7 @@ def filt_shadow_uid2samples(dataset, shadow_uid2samples, auxiliary_users, audit_
 
 if __name__ == '__main__':
     argparser = argparse.ArgumentParser("RecAudit")
-    argparser.add_argument("--dataset", type=str, default="ml-100k", help="Dataset name")
+    argparser.add_argument("--dataset", type=str, default="movielens", help="Dataset name")
     argparser.add_argument("--split_cf", type=str, default="split", help="Config file for spliting dataset") 
     torch.set_num_threads(5)
 

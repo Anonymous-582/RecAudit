@@ -123,7 +123,7 @@ def _prepare_unforgotten_score(
 
 if __name__ == '__main__':
     argparser = argparse.ArgumentParser("RecAudit")
-    argparser.add_argument("--dataset", type=str, default='ml-100k', help='Datasets')
+    argparser.add_argument("--dataset", type=str, default='movielens', help='Datasets')
     argparser.add_argument("--model", type=str, default='BERT4Rec',help='The type of sequence model')
     argparser.add_argument("--split_seed", type=int, default=1, help='Seed used to split shadow users')
     argparser.add_argument("--gpu", type=int, default=0, help='The used gpu id')

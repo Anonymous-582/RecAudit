@@ -20,7 +20,7 @@ To address the new design problem of user data revocation auditing—examining w
 
 ## How to use RecAudit?
 
-**Note**:  Before executing code, ensure that the path is set to ./RecStudio-main. We provide the required data, trained models, and evaluation results on the **ml-100k** dataset as a demo. In our source code, audit and surrogate models are called shadow models refer to other open-sourced codes in membership inference attack literature.
+**Note**:  Before executing code, ensure that the path is set to ./RecStudio-main. We provide the required data, trained models, and evaluation results on the **movielens** dataset as a demo. In our source code, audit and surrogate models are called shadow models refer to other open-sourced codes in membership inference attack literature.
 
 ### 1. First, to train target and audit models, you can run:
 

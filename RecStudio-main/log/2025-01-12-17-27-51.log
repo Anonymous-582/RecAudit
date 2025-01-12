@@ -1,0 +1,951 @@
+[2025-01-12 17:27:51] INFO dataset is read from ../datasets/movielens.
+[2025-01-12 17:27:51] INFO dataset is read from ../datasets/movielens.
+[2025-01-12 17:27:51] INFO dataset is read from ../datasets/movielens.
+[2025-01-12 17:27:51] INFO 
+Dataset Info: 
+
+==================================================
+item information: 
+field     item_id   
+type      token     
+##        1153      
+==================================================
+user information: 
+field     user_id   
+type      token     
+##        944       
+==================================================
+interaction information: 
+field     user_id   item_id   rating    timestamp 
+type      token     token     float     float     
+##        944       1153      -         -         
+==================================================
+Sparsity: 0.909832
+==================================================
+[2025-01-12 17:27:51] INFO 
+Dataset Info: 
+
+==================================================
+item information: 
+field     item_id   
+type      token     
+##        1153      
+==================================================
+user information: 
+field     user_id   
+type      token     
+##        944       
+==================================================
+interaction information: 
+field     user_id   item_id   rating    timestamp 
+type      token     token     float     float     
+##        944       1153      -         -         
+==================================================
+Sparsity: 0.909832
+==================================================
+[2025-01-12 17:27:51] INFO 
+Dataset Info: 
+
+==================================================
+item information: 
+field     item_id   
+type      token     
+##        1153      
+==================================================
+user information: 
+field     user_id   
+type      token     
+##        944       
+==================================================
+interaction information: 
+field     user_id   item_id   rating    timestamp 
+type      token     token     float     float     
+##        944       1153      -         -         
+==================================================
+Sparsity: 0.909832
+==================================================
+[2025-01-12 17:27:52] INFO Global seed set to 2019
+[2025-01-12 17:27:52] INFO 
+Model Config: 
+
+accelerator=gpu
+activation=gelu
+ann=None
+batch_size=1024
+cutoff=10
+dataset_neg_count=None
+dataset_sampler=None
+dropout=0.2
+early_stop_mode=max
+early_stop_patience=20
+embed_dim=64
+epochs=100
+eval_batch_size=128
+excluding_hist=False
+gpu=[3]
+head_num=2
+hidden_size=128
+item_bias=False
+layer_norm_eps=1e-12
+layer_num=2
+learner=adam
+learning_rate=0.001
+mask_ratio=0.2
+negative_count=1
+num_workers=0
+pooling_type=mask
+save_path=./saved/
+scheduler=None
+seed=2019
+split_ratio=2
+steal=False
+test_metrics=['recall', 'precision', 'map', 'ndcg', 'mrr', 'hit']
+test_repetitive=True
+topk=100
+train_repetitive=True
+val_metrics=['recall', 'ndcg']
+weight_decay=1e-05
+[2025-01-12 17:27:52] INFO Global seed set to 2019
+[2025-01-12 17:27:52] INFO 
+Model Config: 
+
+accelerator=gpu
+activation=gelu
+ann=None
+batch_size=1024
+cutoff=10
+dataset_neg_count=None
+dataset_sampler=None
+dropout=0.2
+early_stop_mode=max
+early_stop_patience=20
+embed_dim=64
+epochs=100
+eval_batch_size=128
+excluding_hist=False
+gpu=[3]
+head_num=2
+hidden_size=128
+item_bias=False
+layer_norm_eps=1e-12
+layer_num=2
+learner=adam
+learning_rate=0.001
+mask_ratio=0.2
+negative_count=1
+num_workers=0
+pooling_type=mask
+save_path=./saved/
+scheduler=None
+seed=2019
+split_ratio=2
+steal=False
+test_metrics=['recall', 'precision', 'map', 'ndcg', 'mrr', 'hit']
+test_repetitive=True
+topk=100
+train_repetitive=True
+val_metrics=['recall', 'ndcg']
+weight_decay=1e-05
+[2025-01-12 17:27:53] INFO save_dir:/data1/home/zhihao/code/RecAudit/open-source/RecAudit/RecStudio-main
+[2025-01-12 17:27:53] INFO BERT4Rec(
+  (loss_fn): SoftmaxLoss()
+  (score_func): InnerProductScorer()
+  (item_encoder): Embedding(1154, 64, padding_idx=0)
+  (query_encoder): BERT4RecQueryEncoder(
+    (item_encoder): Embedding(1154, 64, padding_idx=0)
+    (position_emb): Embedding(20, 64)
+    (transformer_layer): TransformerEncoder(
+      (layers): ModuleList(
+        (0): TransformerEncoderLayer(
+          (self_attn): MultiheadAttention(
+            (out_proj): NonDynamicallyQuantizableLinear(in_features=64, out_features=64, bias=True)
+          )
+          (linear1): Linear(in_features=64, out_features=128, bias=True)
+          (dropout): Dropout(p=0.2, inplace=False)
+          (linear2): Linear(in_features=128, out_features=64, bias=True)
+          (norm1): LayerNorm((64,), eps=1e-12, elementwise_affine=True)
+          (norm2): LayerNorm((64,), eps=1e-12, elementwise_affine=True)
+          (dropout1): Dropout(p=0.2, inplace=False)
+          (dropout2): Dropout(p=0.2, inplace=False)
+        )
+        (1): TransformerEncoderLayer(
+          (self_attn): MultiheadAttention(
+            (out_proj): NonDynamicallyQuantizableLinear(in_features=64, out_features=64, bias=True)
+          )
+          (linear1): Linear(in_features=64, out_features=128, bias=True)
+          (dropout): Dropout(p=0.2, inplace=False)
+          (linear2): Linear(in_features=128, out_features=64, bias=True)
+          (norm1): LayerNorm((64,), eps=1e-12, elementwise_affine=True)
+          (norm2): LayerNorm((64,), eps=1e-12, elementwise_affine=True)
+          (dropout1): Dropout(p=0.2, inplace=False)
+          (dropout2): Dropout(p=0.2, inplace=False)
+        )
+      )
+    )
+    (dropout): Dropout(p=0.2, inplace=False)
+    (training_pooling_layer): SeqPoolingLayer(pooling_type=mask, keepdim=False)
+    (eval_pooling_layer): SeqPoolingLayer(pooling_type=last, keepdim=False)
+  )
+)
+[2025-01-12 17:27:53] INFO Global seed set to 2019
+[2025-01-12 17:27:53] INFO 
+Model Config: 
+
+accelerator=gpu
+activation=gelu
+ann=None
+batch_size=1024
+cutoff=10
+dataset_neg_count=None
+dataset_sampler=None
+dropout=0.2
+early_stop_mode=max
+early_stop_patience=20
+embed_dim=64
+epochs=100
+eval_batch_size=128
+excluding_hist=False
+gpu=[0]
+head_num=2
+hidden_size=128
+item_bias=False
+layer_norm_eps=1e-12
+layer_num=2
+learner=adam
+learning_rate=0.001
+mask_ratio=0.2
+negative_count=1
+num_workers=0
+pooling_type=mask
+save_path=./saved/
+scheduler=None
+seed=1
+split_ratio=2
+steal=False
+test_metrics=['recall', 'precision', 'map', 'ndcg', 'mrr', 'hit']
+test_repetitive=True
+topk=100
+train_repetitive=True
+val_metrics=['recall', 'ndcg']
+weight_decay=1e-05
+[2025-01-12 17:27:53] INFO Global seed set to 2019
+[2025-01-12 17:27:53] INFO 
+Model Config: 
+
+accelerator=gpu
+activation=gelu
+ann=None
+batch_size=1024
+cutoff=10
+dataset_neg_count=None
+dataset_sampler=None
+dropout=0.2
+early_stop_mode=max
+early_stop_patience=20
+embed_dim=64
+epochs=100
+eval_batch_size=128
+excluding_hist=False
+gpu=[1]
+head_num=2
+hidden_size=128
+item_bias=False
+layer_norm_eps=1e-12
+layer_num=2
+learner=adam
+learning_rate=0.001
+mask_ratio=0.2
+negative_count=1
+num_workers=0
+pooling_type=mask
+save_path=./saved/
+scheduler=None
+seed=2019
+split_ratio=2
+steal=False
+test_metrics=['recall', 'precision', 'map', 'ndcg', 'mrr', 'hit']
+test_repetitive=True
+topk=100
+train_repetitive=True
+val_metrics=['recall', 'ndcg']
+weight_decay=1e-05
+[2025-01-12 17:27:53] INFO Global seed set to 2019
+[2025-01-12 17:27:53] INFO 
+Model Config: 
+
+accelerator=gpu
+activation=gelu
+ann=None
+batch_size=1024
+cutoff=10
+dataset_neg_count=None
+dataset_sampler=None
+dropout=0.2
+early_stop_mode=max
+early_stop_patience=20
+embed_dim=64
+epochs=100
+eval_batch_size=128
+excluding_hist=False
+gpu=[1]
+head_num=2
+hidden_size=128
+item_bias=False
+layer_norm_eps=1e-12
+layer_num=2
+learner=adam
+learning_rate=0.001
+mask_ratio=0.2
+negative_count=1
+num_workers=0
+pooling_type=mask
+save_path=./saved/
+scheduler=None
+seed=2019
+split_ratio=2
+steal=False
+test_metrics=['recall', 'precision', 'map', 'ndcg', 'mrr', 'hit']
+test_repetitive=True
+topk=100
+train_repetitive=True
+val_metrics=['recall', 'ndcg']
+weight_decay=1e-05
+[2025-01-12 17:27:53] INFO save_dir:/data1/home/zhihao/code/RecAudit/open-source/RecAudit/RecStudio-main
+[2025-01-12 17:27:53] INFO BERT4Rec(
+  (loss_fn): SoftmaxLoss()
+  (score_func): InnerProductScorer()
+  (item_encoder): Embedding(1154, 64, padding_idx=0)
+  (query_encoder): BERT4RecQueryEncoder(
+    (item_encoder): Embedding(1154, 64, padding_idx=0)
+    (position_emb): Embedding(20, 64)
+    (transformer_layer): TransformerEncoder(
+      (layers): ModuleList(
+        (0): TransformerEncoderLayer(
+          (self_attn): MultiheadAttention(
+            (out_proj): NonDynamicallyQuantizableLinear(in_features=64, out_features=64, bias=True)
+          )
+          (linear1): Linear(in_features=64, out_features=128, bias=True)
+          (dropout): Dropout(p=0.2, inplace=False)
+          (linear2): Linear(in_features=128, out_features=64, bias=True)
+          (norm1): LayerNorm((64,), eps=1e-12, elementwise_affine=True)
+          (norm2): LayerNorm((64,), eps=1e-12, elementwise_affine=True)
+          (dropout1): Dropout(p=0.2, inplace=False)
+          (dropout2): Dropout(p=0.2, inplace=False)
+        )
+        (1): TransformerEncoderLayer(
+          (self_attn): MultiheadAttention(
+            (out_proj): NonDynamicallyQuantizableLinear(in_features=64, out_features=64, bias=True)
+          )
+          (linear1): Linear(in_features=64, out_features=128, bias=True)
+          (dropout): Dropout(p=0.2, inplace=False)
+          (linear2): Linear(in_features=128, out_features=64, bias=True)
+          (norm1): LayerNorm((64,), eps=1e-12, elementwise_affine=True)
+          (norm2): LayerNorm((64,), eps=1e-12, elementwise_affine=True)
+          (dropout1): Dropout(p=0.2, inplace=False)
+          (dropout2): Dropout(p=0.2, inplace=False)
+        )
+      )
+    )
+    (dropout): Dropout(p=0.2, inplace=False)
+    (training_pooling_layer): SeqPoolingLayer(pooling_type=mask, keepdim=False)
+    (eval_pooling_layer): SeqPoolingLayer(pooling_type=last, keepdim=False)
+  )
+)
+[2025-01-12 17:27:53] INFO save_dir:/data1/home/zhihao/code/RecAudit/open-source/RecAudit/RecStudio-main
+[2025-01-12 17:27:53] INFO BERT4Rec(
+  (loss_fn): SoftmaxLoss()
+  (score_func): InnerProductScorer()
+  (item_encoder): Embedding(1154, 64, padding_idx=0)
+  (query_encoder): BERT4RecQueryEncoder(
+    (item_encoder): Embedding(1154, 64, padding_idx=0)
+    (position_emb): Embedding(20, 64)
+    (transformer_layer): TransformerEncoder(
+      (layers): ModuleList(
+        (0): TransformerEncoderLayer(
+          (self_attn): MultiheadAttention(
+            (out_proj): NonDynamicallyQuantizableLinear(in_features=64, out_features=64, bias=True)
+          )
+          (linear1): Linear(in_features=64, out_features=128, bias=True)
+          (dropout): Dropout(p=0.2, inplace=False)
+          (linear2): Linear(in_features=128, out_features=64, bias=True)
+          (norm1): LayerNorm((64,), eps=1e-12, elementwise_affine=True)
+          (norm2): LayerNorm((64,), eps=1e-12, elementwise_affine=True)
+          (dropout1): Dropout(p=0.2, inplace=False)
+          (dropout2): Dropout(p=0.2, inplace=False)
+        )
+        (1): TransformerEncoderLayer(
+          (self_attn): MultiheadAttention(
+            (out_proj): NonDynamicallyQuantizableLinear(in_features=64, out_features=64, bias=True)
+          )
+          (linear1): Linear(in_features=64, out_features=128, bias=True)
+          (dropout): Dropout(p=0.2, inplace=False)
+          (linear2): Linear(in_features=128, out_features=64, bias=True)
+          (norm1): LayerNorm((64,), eps=1e-12, elementwise_affine=True)
+          (norm2): LayerNorm((64,), eps=1e-12, elementwise_affine=True)
+          (dropout1): Dropout(p=0.2, inplace=False)
+          (dropout2): Dropout(p=0.2, inplace=False)
+        )
+      )
+    )
+    (dropout): Dropout(p=0.2, inplace=False)
+    (training_pooling_layer): SeqPoolingLayer(pooling_type=mask, keepdim=False)
+    (eval_pooling_layer): SeqPoolingLayer(pooling_type=last, keepdim=False)
+  )
+)
+[2025-01-12 17:27:59] INFO Training: Epoch=  0 [recall@10=0.0478 ndcg@10=0.0212 train_loss=6.8114]
+[2025-01-12 17:27:59] INFO Train time: 1.73945s. Valid time: 1.80769s
+[2025-01-12 17:27:59] INFO recall@10 improved. Best value: 0.0478
+[2025-01-12 17:27:59] INFO Training: Epoch=  0 [recall@10=0.0573 ndcg@10=0.0270 train_loss=6.8026]
+[2025-01-12 17:27:59] INFO Train time: 1.79126s. Valid time: 1.81444s
+[2025-01-12 17:27:59] INFO recall@10 improved. Best value: 0.0573
+[2025-01-12 17:27:59] INFO Training: Epoch=  0 [recall@10=0.0743 ndcg@10=0.0324 train_loss=6.7512]
+[2025-01-12 17:27:59] INFO Train time: 2.01773s. Valid time: 2.04650s
+[2025-01-12 17:27:59] INFO recall@10 improved. Best value: 0.0743
+[2025-01-12 17:28:01] INFO Training: Epoch=  1 [recall@10=0.0605 ndcg@10=0.0301 train_loss=6.6150]
+[2025-01-12 17:28:01] INFO Train time: 1.34184s. Valid time: 1.38157s
+[2025-01-12 17:28:01] INFO recall@10 improved. Best value: 0.0605
+[2025-01-12 17:28:01] INFO Training: Epoch=  1 [recall@10=0.0573 ndcg@10=0.0339 train_loss=6.6090]
+[2025-01-12 17:28:01] INFO Train time: 1.44209s. Valid time: 1.47688s
+[2025-01-12 17:28:01] INFO recall@10 improved. Best value: 0.0573
+[2025-01-12 17:28:01] INFO Training: Epoch=  1 [recall@10=0.1316 ndcg@10=0.0656 train_loss=6.4770]
+[2025-01-12 17:28:01] INFO Train time: 1.67538s. Valid time: 1.70355s
+[2025-01-12 17:28:01] INFO recall@10 improved. Best value: 0.1316
+[2025-01-12 17:28:02] INFO Training: Epoch=  2 [recall@10=0.1529 ndcg@10=0.0720 train_loss=6.3796]
+[2025-01-12 17:28:02] INFO Train time: 1.27504s. Valid time: 1.31343s
+[2025-01-12 17:28:02] INFO recall@10 improved. Best value: 0.1529
+[2025-01-12 17:28:02] INFO Training: Epoch=  2 [recall@10=0.1274 ndcg@10=0.0623 train_loss=6.3576]
+[2025-01-12 17:28:02] INFO Train time: 1.52741s. Valid time: 1.55944s
+[2025-01-12 17:28:02] INFO recall@10 improved. Best value: 0.1274
+[2025-01-12 17:28:03] INFO Training: Epoch=  2 [recall@10=0.1359 ndcg@10=0.0676 train_loss=6.0548]
+[2025-01-12 17:28:03] INFO Train time: 1.75609s. Valid time: 1.78312s
+[2025-01-12 17:28:03] INFO recall@10 improved. Best value: 0.1359
+[2025-01-12 17:28:03] INFO Training: Epoch=  3 [recall@10=0.1401 ndcg@10=0.0745 train_loss=6.1092]
+[2025-01-12 17:28:03] INFO Train time: 1.38621s. Valid time: 1.41710s
+[2025-01-12 17:28:04] INFO Training: Epoch=  3 [recall@10=0.1561 ndcg@10=0.0726 train_loss=6.0513]
+[2025-01-12 17:28:04] INFO Train time: 1.44858s. Valid time: 1.48379s
+[2025-01-12 17:28:04] INFO recall@10 improved. Best value: 0.1561
+[2025-01-12 17:28:05] INFO Training: Epoch=  3 [recall@10=0.1507 ndcg@10=0.0818 train_loss=5.8709]
+[2025-01-12 17:28:05] INFO Train time: 1.72745s. Valid time: 1.75410s
+[2025-01-12 17:28:05] INFO recall@10 improved. Best value: 0.1507
+[2025-01-12 17:28:05] INFO Training: Epoch=  4 [recall@10=0.1242 ndcg@10=0.0623 train_loss=5.9378]
+[2025-01-12 17:28:05] INFO Train time: 1.42325s. Valid time: 1.45115s
+[2025-01-12 17:28:05] INFO Training: Epoch=  4 [recall@10=0.1561 ndcg@10=0.0756 train_loss=5.9180]
+[2025-01-12 17:28:05] INFO Train time: 1.42207s. Valid time: 1.45834s
+[2025-01-12 17:28:06] INFO Training: Epoch=  5 [recall@10=0.1369 ndcg@10=0.0664 train_loss=5.9153]
+[2025-01-12 17:28:06] INFO Train time: 1.33070s. Valid time: 1.37169s
+[2025-01-12 17:28:06] INFO Training: Epoch=  4 [recall@10=0.1423 ndcg@10=0.0703 train_loss=5.7700]
+[2025-01-12 17:28:06] INFO Train time: 1.74048s. Valid time: 1.76896s
+[2025-01-12 17:28:07] INFO Training: Epoch=  5 [recall@10=0.1656 ndcg@10=0.0725 train_loss=5.8383]
+[2025-01-12 17:28:07] INFO Train time: 1.36760s. Valid time: 1.40293s
+[2025-01-12 17:28:07] INFO recall@10 improved. Best value: 0.1656
+[2025-01-12 17:28:08] INFO Training: Epoch=  6 [recall@10=0.1274 ndcg@10=0.0633 train_loss=5.8581]
+[2025-01-12 17:28:08] INFO Train time: 1.47000s. Valid time: 1.50568s
+[2025-01-12 17:28:08] INFO Training: Epoch=  5 [recall@10=0.1741 ndcg@10=0.0900 train_loss=5.6987]
+[2025-01-12 17:28:08] INFO Train time: 1.63361s. Valid time: 1.65912s
+[2025-01-12 17:28:08] INFO recall@10 improved. Best value: 0.1741
+[2025-01-12 17:28:08] INFO Training: Epoch=  6 [recall@10=0.1497 ndcg@10=0.0702 train_loss=5.7805]
+[2025-01-12 17:28:08] INFO Train time: 1.44914s. Valid time: 1.48187s
+[2025-01-12 17:28:09] INFO Training: Epoch=  7 [recall@10=0.1306 ndcg@10=0.0623 train_loss=5.8122]
+[2025-01-12 17:28:09] INFO Train time: 1.34451s. Valid time: 1.38190s
+[2025-01-12 17:28:10] INFO Training: Epoch=  7 [recall@10=0.1592 ndcg@10=0.0793 train_loss=5.7368]
+[2025-01-12 17:28:10] INFO Train time: 1.39758s. Valid time: 1.43811s
+[2025-01-12 17:28:10] INFO Training: Epoch=  6 [recall@10=0.1783 ndcg@10=0.0877 train_loss=5.6553]
+[2025-01-12 17:28:10] INFO Train time: 1.74635s. Valid time: 1.77386s
+[2025-01-12 17:28:10] INFO recall@10 improved. Best value: 0.1783
+[2025-01-12 17:28:11] INFO Training: Epoch=  8 [recall@10=0.1369 ndcg@10=0.0665 train_loss=5.7895]
+[2025-01-12 17:28:11] INFO Train time: 1.49803s. Valid time: 1.52860s
+[2025-01-12 17:28:11] INFO Training: Epoch=  8 [recall@10=0.1561 ndcg@10=0.0752 train_loss=5.6957]
+[2025-01-12 17:28:11] INFO Train time: 1.46306s. Valid time: 1.50269s
+[2025-01-12 17:28:12] INFO Training: Epoch=  7 [recall@10=0.1720 ndcg@10=0.0870 train_loss=5.6199]
+[2025-01-12 17:28:12] INFO Train time: 1.69755s. Valid time: 1.72618s
+[2025-01-12 17:28:12] INFO Training: Epoch=  9 [recall@10=0.1210 ndcg@10=0.0604 train_loss=5.7692]
+[2025-01-12 17:28:12] INFO Train time: 1.43879s. Valid time: 1.46721s
+[2025-01-12 17:28:13] INFO Training: Epoch=  9 [recall@10=0.1561 ndcg@10=0.0798 train_loss=5.6664]
+[2025-01-12 17:28:13] INFO Train time: 1.52519s. Valid time: 1.56614s
+[2025-01-12 17:28:13] INFO Training: Epoch=  8 [recall@10=0.1847 ndcg@10=0.0914 train_loss=5.5843]
+[2025-01-12 17:28:13] INFO Train time: 1.69267s. Valid time: 1.72063s
+[2025-01-12 17:28:13] INFO recall@10 improved. Best value: 0.1847
+[2025-01-12 17:28:13] INFO Training: Epoch= 10 [recall@10=0.1242 ndcg@10=0.0716 train_loss=5.7414]
+[2025-01-12 17:28:13] INFO Train time: 1.32009s. Valid time: 1.35925s
+[2025-01-12 17:28:14] INFO Training: Epoch= 10 [recall@10=0.1624 ndcg@10=0.0776 train_loss=5.6308]
+[2025-01-12 17:28:14] INFO Train time: 1.48969s. Valid time: 1.52212s
+[2025-01-12 17:28:15] INFO Training: Epoch= 11 [recall@10=0.1306 ndcg@10=0.0641 train_loss=5.7123]
+[2025-01-12 17:28:15] INFO Train time: 1.47195s. Valid time: 1.51187s
+[2025-01-12 17:28:15] INFO Training: Epoch=  9 [recall@10=0.1826 ndcg@10=0.0972 train_loss=5.5591]
+[2025-01-12 17:28:15] INFO Train time: 1.80988s. Valid time: 1.83792s
+[2025-01-12 17:28:16] INFO Training: Epoch= 11 [recall@10=0.1433 ndcg@10=0.0751 train_loss=5.6142]
+[2025-01-12 17:28:16] INFO Train time: 1.42814s. Valid time: 1.46436s
+[2025-01-12 17:28:16] INFO Training: Epoch= 12 [recall@10=0.1274 ndcg@10=0.0600 train_loss=5.6686]
+[2025-01-12 17:28:16] INFO Train time: 1.37183s. Valid time: 1.40662s
+[2025-01-12 17:28:17] INFO Training: Epoch= 10 [recall@10=0.1826 ndcg@10=0.0941 train_loss=5.5415]
+[2025-01-12 17:28:17] INFO Train time: 1.63221s. Valid time: 1.66268s
+[2025-01-12 17:28:17] INFO Training: Epoch= 12 [recall@10=0.1497 ndcg@10=0.0731 train_loss=5.5910]
+[2025-01-12 17:28:17] INFO Train time: 1.35489s. Valid time: 1.39804s
+[2025-01-12 17:28:18] INFO Training: Epoch= 13 [recall@10=0.1338 ndcg@10=0.0592 train_loss=5.6765]
+[2025-01-12 17:28:18] INFO Train time: 1.52437s. Valid time: 1.54906s
+[2025-01-12 17:28:18] INFO Training: Epoch= 13 [recall@10=0.1561 ndcg@10=0.0743 train_loss=5.5756]
+[2025-01-12 17:28:18] INFO Train time: 1.44972s. Valid time: 1.49171s
+[2025-01-12 17:28:19] INFO Training: Epoch= 11 [recall@10=0.1826 ndcg@10=0.1033 train_loss=5.5168]
+[2025-01-12 17:28:19] INFO Train time: 1.74526s. Valid time: 1.77070s
+[2025-01-12 17:28:20] INFO Training: Epoch= 14 [recall@10=0.1338 ndcg@10=0.0581 train_loss=5.6384]
+[2025-01-12 17:28:20] INFO Train time: 1.60036s. Valid time: 1.64865s
+[2025-01-12 17:28:20] INFO Training: Epoch= 14 [recall@10=0.1529 ndcg@10=0.0729 train_loss=5.5572]
+[2025-01-12 17:28:20] INFO Train time: 1.69538s. Valid time: 1.72650s
+[2025-01-12 17:28:20] INFO Training: Epoch= 12 [recall@10=0.1953 ndcg@10=0.1004 train_loss=5.5012]
+[2025-01-12 17:28:20] INFO Train time: 1.64356s. Valid time: 1.67015s
+[2025-01-12 17:28:20] INFO recall@10 improved. Best value: 0.1953
+[2025-01-12 17:28:21] INFO Training: Epoch= 15 [recall@10=0.1433 ndcg@10=0.0682 train_loss=5.6627]
+[2025-01-12 17:28:21] INFO Train time: 1.88699s. Valid time: 1.91701s
+[2025-01-12 17:28:22] INFO Training: Epoch= 15 [recall@10=0.1497 ndcg@10=0.0715 train_loss=5.5391]
+[2025-01-12 17:28:22] INFO Train time: 1.37294s. Valid time: 1.40689s
+[2025-01-12 17:28:22] INFO Training: Epoch= 13 [recall@10=0.1826 ndcg@10=0.1006 train_loss=5.4838]
+[2025-01-12 17:28:22] INFO Train time: 1.75424s. Valid time: 1.78005s
+[2025-01-12 17:28:23] INFO Training: Epoch= 16 [recall@10=0.1338 ndcg@10=0.0673 train_loss=5.6317]
+[2025-01-12 17:28:23] INFO Train time: 1.50982s. Valid time: 1.53928s
+[2025-01-12 17:28:23] INFO Training: Epoch= 16 [recall@10=0.1465 ndcg@10=0.0712 train_loss=5.5279]
+[2025-01-12 17:28:23] INFO Train time: 1.42637s. Valid time: 1.47150s
+[2025-01-12 17:28:24] INFO Training: Epoch= 14 [recall@10=0.1996 ndcg@10=0.1078 train_loss=5.4711]
+[2025-01-12 17:28:24] INFO Train time: 1.71707s. Valid time: 1.74579s
+[2025-01-12 17:28:24] INFO recall@10 improved. Best value: 0.1996
+[2025-01-12 17:28:24] INFO Training: Epoch= 17 [recall@10=0.1369 ndcg@10=0.0647 train_loss=5.6169]
+[2025-01-12 17:28:24] INFO Train time: 1.31516s. Valid time: 1.35274s
+[2025-01-12 17:28:25] INFO Training: Epoch= 17 [recall@10=0.1561 ndcg@10=0.0778 train_loss=5.5186]
+[2025-01-12 17:28:25] INFO Train time: 1.39742s. Valid time: 1.43914s
+[2025-01-12 17:28:25] INFO Training: Epoch= 15 [recall@10=0.1996 ndcg@10=0.1081 train_loss=5.4494]
+[2025-01-12 17:28:25] INFO Train time: 1.64699s. Valid time: 1.68537s
+[2025-01-12 17:28:26] INFO Training: Epoch= 18 [recall@10=0.1369 ndcg@10=0.0594 train_loss=5.6115]
+[2025-01-12 17:28:26] INFO Train time: 1.42880s. Valid time: 1.45794s
+[2025-01-12 17:28:26] INFO Training: Epoch= 18 [recall@10=0.1561 ndcg@10=0.0702 train_loss=5.5000]
+[2025-01-12 17:28:26] INFO Train time: 1.35314s. Valid time: 1.39296s
+[2025-01-12 17:28:27] INFO Training: Epoch= 19 [recall@10=0.1497 ndcg@10=0.0726 train_loss=5.4929]
+[2025-01-12 17:28:27] INFO Train time: 1.34022s. Valid time: 1.38025s
+[2025-01-12 17:28:27] INFO Training: Epoch= 19 [recall@10=0.1401 ndcg@10=0.0681 train_loss=5.5889]
+[2025-01-12 17:28:27] INFO Train time: 1.46830s. Valid time: 1.49708s
+[2025-01-12 17:28:27] INFO Training: Epoch= 16 [recall@10=0.1911 ndcg@10=0.1003 train_loss=5.4431]
+[2025-01-12 17:28:27] INFO Train time: 1.80544s. Valid time: 1.83191s
+[2025-01-12 17:28:29] INFO Training: Epoch= 20 [recall@10=0.1561 ndcg@10=0.0768 train_loss=5.4734]
+[2025-01-12 17:28:29] INFO Train time: 1.29329s. Valid time: 1.32997s
+[2025-01-12 17:28:29] INFO Training: Epoch= 20 [recall@10=0.1529 ndcg@10=0.0716 train_loss=5.5844]
+[2025-01-12 17:28:29] INFO Train time: 1.40195s. Valid time: 1.43400s
+[2025-01-12 17:28:29] INFO Training: Epoch= 17 [recall@10=0.1932 ndcg@10=0.1033 train_loss=5.4313]
+[2025-01-12 17:28:29] INFO Train time: 1.72873s. Valid time: 1.75637s
+[2025-01-12 17:28:30] INFO Training: Epoch= 21 [recall@10=0.1401 ndcg@10=0.0720 train_loss=5.4691]
+[2025-01-12 17:28:30] INFO Train time: 1.41222s. Valid time: 1.45001s
+[2025-01-12 17:28:30] INFO Training: Epoch= 21 [recall@10=0.1465 ndcg@10=0.0688 train_loss=5.5541]
+[2025-01-12 17:28:30] INFO Train time: 1.42379s. Valid time: 1.45316s
+[2025-01-12 17:28:31] INFO Training: Epoch= 18 [recall@10=0.1911 ndcg@10=0.1009 train_loss=5.4284]
+[2025-01-12 17:28:31] INFO Train time: 1.67413s. Valid time: 1.70220s
+[2025-01-12 17:28:31] INFO Training: Epoch= 22 [recall@10=0.1369 ndcg@10=0.0706 train_loss=5.4541]
+[2025-01-12 17:28:31] INFO Train time: 1.30986s. Valid time: 1.35192s
+[2025-01-12 17:28:32] INFO Training: Epoch= 22 [recall@10=0.1465 ndcg@10=0.0733 train_loss=5.5667]
+[2025-01-12 17:28:32] INFO Train time: 1.51747s. Valid time: 1.55716s
+[2025-01-12 17:28:32] INFO Early stopped. recall@10 didn't improve for 20 epochs.
+[2025-01-12 17:28:32] INFO The best score of recall@10 is 0.1529 at 2
+[2025-01-12 17:28:32] INFO Best model checkpoiny saved in ./metadata/model_checkpoint/shadow_model/movielens/BERT4Rec/split/train/member_model_10.
+[2025-01-12 17:28:32] INFO Shadow model recommendation performance:
+[2025-01-12 17:28:32] INFO Testing:  [recall@10=0.0701 precision@10=0.0070 map@10=0.0283 ndcg@10=0.0381 mrr@10=0.0283 hit@10=0.0701]
+[2025-01-12 17:28:32] INFO save_dir:/data1/home/zhihao/code/RecAudit/open-source/RecAudit/RecStudio-main
+[2025-01-12 17:28:32] INFO BERT4Rec(
+  (loss_fn): SoftmaxLoss()
+  (score_func): InnerProductScorer()
+  (item_encoder): Embedding(1154, 64, padding_idx=0)
+  (query_encoder): BERT4RecQueryEncoder(
+    (item_encoder): Embedding(1154, 64, padding_idx=0)
+    (position_emb): Embedding(20, 64)
+    (transformer_layer): TransformerEncoder(
+      (layers): ModuleList(
+        (0): TransformerEncoderLayer(
+          (self_attn): MultiheadAttention(
+            (out_proj): NonDynamicallyQuantizableLinear(in_features=64, out_features=64, bias=True)
+          )
+          (linear1): Linear(in_features=64, out_features=128, bias=True)
+          (dropout): Dropout(p=0.2, inplace=False)
+          (linear2): Linear(in_features=128, out_features=64, bias=True)
+          (norm1): LayerNorm((64,), eps=1e-12, elementwise_affine=True)
+          (norm2): LayerNorm((64,), eps=1e-12, elementwise_affine=True)
+          (dropout1): Dropout(p=0.2, inplace=False)
+          (dropout2): Dropout(p=0.2, inplace=False)
+        )
+        (1): TransformerEncoderLayer(
+          (self_attn): MultiheadAttention(
+            (out_proj): NonDynamicallyQuantizableLinear(in_features=64, out_features=64, bias=True)
+          )
+          (linear1): Linear(in_features=64, out_features=128, bias=True)
+          (dropout): Dropout(p=0.2, inplace=False)
+          (linear2): Linear(in_features=128, out_features=64, bias=True)
+          (norm1): LayerNorm((64,), eps=1e-12, elementwise_affine=True)
+          (norm2): LayerNorm((64,), eps=1e-12, elementwise_affine=True)
+          (dropout1): Dropout(p=0.2, inplace=False)
+          (dropout2): Dropout(p=0.2, inplace=False)
+        )
+      )
+    )
+    (dropout): Dropout(p=0.2, inplace=False)
+    (training_pooling_layer): SeqPoolingLayer(pooling_type=mask, keepdim=False)
+    (eval_pooling_layer): SeqPoolingLayer(pooling_type=last, keepdim=False)
+  )
+)
+[2025-01-12 17:28:33] INFO Training: Epoch= 19 [recall@10=0.1805 ndcg@10=0.1012 train_loss=5.4184]
+[2025-01-12 17:28:33] INFO Train time: 1.74090s. Valid time: 1.76939s
+[2025-01-12 17:28:33] INFO Training: Epoch= 23 [recall@10=0.1497 ndcg@10=0.0738 train_loss=5.4439]
+[2025-01-12 17:28:33] INFO Train time: 1.43676s. Valid time: 1.47086s
+[2025-01-12 17:28:33] INFO Training: Epoch=  0 [recall@10=0.0381 ndcg@10=0.0157 train_loss=6.7947]
+[2025-01-12 17:28:33] INFO Train time: 1.36206s. Valid time: 1.39402s
+[2025-01-12 17:28:33] INFO recall@10 improved. Best value: 0.0381
+[2025-01-12 17:28:34] INFO Training: Epoch= 20 [recall@10=0.1890 ndcg@10=0.0996 train_loss=5.3994]
+[2025-01-12 17:28:34] INFO Train time: 1.74074s. Valid time: 1.76639s
+[2025-01-12 17:28:34] INFO Training: Epoch= 24 [recall@10=0.1497 ndcg@10=0.0743 train_loss=5.4330]
+[2025-01-12 17:28:34] INFO Train time: 1.49848s. Valid time: 1.53816s
+[2025-01-12 17:28:35] INFO Training: Epoch=  1 [recall@10=0.0667 ndcg@10=0.0352 train_loss=6.5838]
+[2025-01-12 17:28:35] INFO Train time: 1.40205s. Valid time: 1.44144s
+[2025-01-12 17:28:35] INFO recall@10 improved. Best value: 0.0667
+[2025-01-12 17:28:36] INFO Training: Epoch= 25 [recall@10=0.1401 ndcg@10=0.0708 train_loss=5.4267]
+[2025-01-12 17:28:36] INFO Train time: 1.34644s. Valid time: 1.38957s
+[2025-01-12 17:28:36] INFO Early stopped. recall@10 didn't improve for 20 epochs.
+[2025-01-12 17:28:36] INFO The best score of recall@10 is 0.1656 at 5
+[2025-01-12 17:28:36] INFO Best model checkpoiny saved in ./metadata/model_checkpoint/shadow_model/movielens/BERT4Rec/split/train/member_model_2.
+[2025-01-12 17:28:36] INFO Shadow model recommendation performance:
+[2025-01-12 17:28:36] INFO Testing:  [recall@10=0.0924 precision@10=0.0092 map@10=0.0208 ndcg@10=0.0371 mrr@10=0.0208 hit@10=0.0924]
+[2025-01-12 17:28:36] INFO Training: Epoch= 21 [recall@10=0.1890 ndcg@10=0.1006 train_loss=5.3868]
+[2025-01-12 17:28:36] INFO Train time: 1.57057s. Valid time: 1.60734s
+[2025-01-12 17:28:36] INFO save_dir:/data1/home/zhihao/code/RecAudit/open-source/RecAudit/RecStudio-main
+[2025-01-12 17:28:36] INFO BERT4Rec(
+  (loss_fn): SoftmaxLoss()
+  (score_func): InnerProductScorer()
+  (item_encoder): Embedding(1154, 64, padding_idx=0)
+  (query_encoder): BERT4RecQueryEncoder(
+    (item_encoder): Embedding(1154, 64, padding_idx=0)
+    (position_emb): Embedding(20, 64)
+    (transformer_layer): TransformerEncoder(
+      (layers): ModuleList(
+        (0): TransformerEncoderLayer(
+          (self_attn): MultiheadAttention(
+            (out_proj): NonDynamicallyQuantizableLinear(in_features=64, out_features=64, bias=True)
+          )
+          (linear1): Linear(in_features=64, out_features=128, bias=True)
+          (dropout): Dropout(p=0.2, inplace=False)
+          (linear2): Linear(in_features=128, out_features=64, bias=True)
+          (norm1): LayerNorm((64,), eps=1e-12, elementwise_affine=True)
+          (norm2): LayerNorm((64,), eps=1e-12, elementwise_affine=True)
+          (dropout1): Dropout(p=0.2, inplace=False)
+          (dropout2): Dropout(p=0.2, inplace=False)
+        )
+        (1): TransformerEncoderLayer(
+          (self_attn): MultiheadAttention(
+            (out_proj): NonDynamicallyQuantizableLinear(in_features=64, out_features=64, bias=True)
+          )
+          (linear1): Linear(in_features=64, out_features=128, bias=True)
+          (dropout): Dropout(p=0.2, inplace=False)
+          (linear2): Linear(in_features=128, out_features=64, bias=True)
+          (norm1): LayerNorm((64,), eps=1e-12, elementwise_affine=True)
+          (norm2): LayerNorm((64,), eps=1e-12, elementwise_affine=True)
+          (dropout1): Dropout(p=0.2, inplace=False)
+          (dropout2): Dropout(p=0.2, inplace=False)
+        )
+      )
+    )
+    (dropout): Dropout(p=0.2, inplace=False)
+    (training_pooling_layer): SeqPoolingLayer(pooling_type=mask, keepdim=False)
+    (eval_pooling_layer): SeqPoolingLayer(pooling_type=last, keepdim=False)
+  )
+)
+[2025-01-12 17:28:36] INFO Training: Epoch=  2 [recall@10=0.1397 ndcg@10=0.0702 train_loss=6.2728]
+[2025-01-12 17:28:36] INFO Train time: 1.30328s. Valid time: 1.34129s
+[2025-01-12 17:28:36] INFO recall@10 improved. Best value: 0.1397
+[2025-01-12 17:28:37] INFO Training: Epoch=  0 [recall@10=0.0444 ndcg@10=0.0205 train_loss=6.7865]
+[2025-01-12 17:28:37] INFO Train time: 1.41108s. Valid time: 1.44197s
+[2025-01-12 17:28:37] INFO recall@10 improved. Best value: 0.0444
+[2025-01-12 17:28:38] INFO Training: Epoch=  3 [recall@10=0.1365 ndcg@10=0.0666 train_loss=6.0086]
+[2025-01-12 17:28:38] INFO Train time: 1.40474s. Valid time: 1.43928s
+[2025-01-12 17:28:38] INFO Training: Epoch= 22 [recall@10=0.1826 ndcg@10=0.0978 train_loss=5.3812]
+[2025-01-12 17:28:38] INFO Train time: 1.82879s. Valid time: 1.85610s
+[2025-01-12 17:28:39] INFO Training: Epoch=  4 [recall@10=0.1270 ndcg@10=0.0615 train_loss=5.9005]
+[2025-01-12 17:28:39] INFO Train time: 1.33410s. Valid time: 1.37469s
+[2025-01-12 17:28:39] INFO Training: Epoch=  1 [recall@10=0.0603 ndcg@10=0.0346 train_loss=6.5713]
+[2025-01-12 17:28:39] INFO Train time: 1.48340s. Valid time: 1.51942s
+[2025-01-12 17:28:39] INFO recall@10 improved. Best value: 0.0603
+[2025-01-12 17:28:39] INFO Training: Epoch= 23 [recall@10=0.1932 ndcg@10=0.0996 train_loss=5.3726]
+[2025-01-12 17:28:39] INFO Train time: 1.69992s. Valid time: 1.72766s
+[2025-01-12 17:28:40] INFO Training: Epoch=  5 [recall@10=0.1143 ndcg@10=0.0612 train_loss=5.8337]
+[2025-01-12 17:28:40] INFO Train time: 1.50515s. Valid time: 1.53912s
+[2025-01-12 17:28:41] INFO Training: Epoch=  2 [recall@10=0.1079 ndcg@10=0.0575 train_loss=6.3619]
+[2025-01-12 17:28:41] INFO Train time: 1.74900s. Valid time: 1.78734s
+[2025-01-12 17:28:41] INFO recall@10 improved. Best value: 0.1079
+[2025-01-12 17:28:41] INFO Training: Epoch= 24 [recall@10=0.1996 ndcg@10=0.1072 train_loss=5.3651]
+[2025-01-12 17:28:41] INFO Train time: 1.73018s. Valid time: 1.75567s
+[2025-01-12 17:28:42] INFO Training: Epoch=  6 [recall@10=0.1143 ndcg@10=0.0629 train_loss=5.7806]
+[2025-01-12 17:28:42] INFO Train time: 1.34958s. Valid time: 1.38063s
+[2025-01-12 17:28:42] INFO Training: Epoch=  3 [recall@10=0.1270 ndcg@10=0.0615 train_loss=6.0436]
+[2025-01-12 17:28:42] INFO Train time: 1.53220s. Valid time: 1.56052s
+[2025-01-12 17:28:42] INFO recall@10 improved. Best value: 0.1270
+[2025-01-12 17:28:43] INFO Training: Epoch= 25 [recall@10=0.2166 ndcg@10=0.1056 train_loss=5.3561]
+[2025-01-12 17:28:43] INFO Train time: 1.73928s. Valid time: 1.76445s
+[2025-01-12 17:28:43] INFO recall@10 improved. Best value: 0.2166
+[2025-01-12 17:28:43] INFO Training: Epoch=  7 [recall@10=0.1238 ndcg@10=0.0667 train_loss=5.7393]
+[2025-01-12 17:28:43] INFO Train time: 1.48457s. Valid time: 1.52392s
+[2025-01-12 17:28:44] INFO Training: Epoch=  4 [recall@10=0.1492 ndcg@10=0.0626 train_loss=5.8780]
+[2025-01-12 17:28:44] INFO Train time: 1.38511s. Valid time: 1.41766s
+[2025-01-12 17:28:44] INFO recall@10 improved. Best value: 0.1492
+[2025-01-12 17:28:45] INFO Training: Epoch= 26 [recall@10=0.2081 ndcg@10=0.1040 train_loss=5.3445]
+[2025-01-12 17:28:45] INFO Train time: 1.62528s. Valid time: 1.65310s
+[2025-01-12 17:28:45] INFO Training: Epoch=  8 [recall@10=0.1587 ndcg@10=0.0752 train_loss=5.6899]
+[2025-01-12 17:28:45] INFO Train time: 1.40099s. Valid time: 1.43814s
+[2025-01-12 17:28:45] INFO recall@10 improved. Best value: 0.1587
+[2025-01-12 17:28:46] INFO Training: Epoch=  5 [recall@10=0.1333 ndcg@10=0.0615 train_loss=5.7917]
+[2025-01-12 17:28:46] INFO Train time: 1.87699s. Valid time: 1.91963s
+[2025-01-12 17:28:46] INFO Training: Epoch=  9 [recall@10=0.1651 ndcg@10=0.0842 train_loss=5.6558]
+[2025-01-12 17:28:46] INFO Train time: 1.31226s. Valid time: 1.34329s
+[2025-01-12 17:28:46] INFO recall@10 improved. Best value: 0.1651
+[2025-01-12 17:28:46] INFO Training: Epoch= 27 [recall@10=0.2123 ndcg@10=0.1071 train_loss=5.3380]
+[2025-01-12 17:28:46] INFO Train time: 1.70627s. Valid time: 1.73186s
+[2025-01-12 17:28:47] INFO Training: Epoch=  6 [recall@10=0.1619 ndcg@10=0.0782 train_loss=5.7240]
+[2025-01-12 17:28:47] INFO Train time: 1.50324s. Valid time: 1.53609s
+[2025-01-12 17:28:47] INFO recall@10 improved. Best value: 0.1619
+[2025-01-12 17:28:48] INFO Training: Epoch= 10 [recall@10=0.1683 ndcg@10=0.0842 train_loss=5.6353]
+[2025-01-12 17:28:48] INFO Train time: 1.42860s. Valid time: 1.47027s
+[2025-01-12 17:28:48] INFO recall@10 improved. Best value: 0.1683
+[2025-01-12 17:28:48] INFO Training: Epoch= 28 [recall@10=0.1826 ndcg@10=0.0934 train_loss=5.3313]
+[2025-01-12 17:28:48] INFO Train time: 1.73078s. Valid time: 1.76001s
+[2025-01-12 17:28:49] INFO Training: Epoch=  7 [recall@10=0.1651 ndcg@10=0.0788 train_loss=5.6870]
+[2025-01-12 17:28:49] INFO Train time: 1.42147s. Valid time: 1.45269s
+[2025-01-12 17:28:49] INFO recall@10 improved. Best value: 0.1651
+[2025-01-12 17:28:49] INFO Training: Epoch= 11 [recall@10=0.1714 ndcg@10=0.0844 train_loss=5.6037]
+[2025-01-12 17:28:49] INFO Train time: 1.40370s. Valid time: 1.44133s
+[2025-01-12 17:28:49] INFO recall@10 improved. Best value: 0.1714
+[2025-01-12 17:28:50] INFO Training: Epoch= 29 [recall@10=0.2017 ndcg@10=0.1065 train_loss=5.3215]
+[2025-01-12 17:28:50] INFO Train time: 1.79022s. Valid time: 1.81901s
+[2025-01-12 17:28:50] INFO Training: Epoch=  8 [recall@10=0.1524 ndcg@10=0.0738 train_loss=5.6527]
+[2025-01-12 17:28:50] INFO Train time: 1.40855s. Valid time: 1.44145s
+[2025-01-12 17:28:50] INFO Training: Epoch= 12 [recall@10=0.1714 ndcg@10=0.0894 train_loss=5.5811]
+[2025-01-12 17:28:50] INFO Train time: 1.41925s. Valid time: 1.44056s
+[2025-01-12 17:28:51] INFO Training: Epoch=  9 [recall@10=0.1619 ndcg@10=0.0836 train_loss=5.6276]
+[2025-01-12 17:28:51] INFO Train time: 1.35252s. Valid time: 1.39630s
+[2025-01-12 17:28:52] INFO Training: Epoch= 30 [recall@10=0.1975 ndcg@10=0.0988 train_loss=5.3212]
+[2025-01-12 17:28:52] INFO Train time: 1.69422s. Valid time: 1.71957s
+[2025-01-12 17:28:52] INFO Training: Epoch= 13 [recall@10=0.1746 ndcg@10=0.0886 train_loss=5.5641]
+[2025-01-12 17:28:52] INFO Train time: 1.44749s. Valid time: 1.48672s
+[2025-01-12 17:28:52] INFO recall@10 improved. Best value: 0.1746
+[2025-01-12 17:28:53] INFO Training: Epoch= 10 [recall@10=0.1841 ndcg@10=0.0875 train_loss=5.6064]
+[2025-01-12 17:28:53] INFO Train time: 1.35559s. Valid time: 1.38474s
+[2025-01-12 17:28:53] INFO recall@10 improved. Best value: 0.1841
+[2025-01-12 17:28:53] INFO Training: Epoch= 31 [recall@10=0.1953 ndcg@10=0.0981 train_loss=5.3153]
+[2025-01-12 17:28:53] INFO Train time: 1.59107s. Valid time: 1.61652s
+[2025-01-12 17:28:53] INFO Training: Epoch= 14 [recall@10=0.1714 ndcg@10=0.0892 train_loss=5.5503]
+[2025-01-12 17:28:53] INFO Train time: 1.45984s. Valid time: 1.50500s
+[2025-01-12 17:28:54] INFO Training: Epoch= 11 [recall@10=0.1619 ndcg@10=0.0809 train_loss=5.5793]
+[2025-01-12 17:28:54] INFO Train time: 1.35063s. Valid time: 1.39107s
+[2025-01-12 17:28:55] INFO Training: Epoch= 32 [recall@10=0.1890 ndcg@10=0.0983 train_loss=5.3104]
+[2025-01-12 17:28:55] INFO Train time: 1.72921s. Valid time: 1.75415s
+[2025-01-12 17:28:55] INFO Training: Epoch= 15 [recall@10=0.1937 ndcg@10=0.0957 train_loss=5.5228]
+[2025-01-12 17:28:55] INFO Train time: 1.74990s. Valid time: 1.79437s
+[2025-01-12 17:28:55] INFO recall@10 improved. Best value: 0.1937
+[2025-01-12 17:28:56] INFO Training: Epoch= 12 [recall@10=0.1937 ndcg@10=0.1024 train_loss=5.5718]
+[2025-01-12 17:28:56] INFO Train time: 1.43463s. Valid time: 1.47614s
+[2025-01-12 17:28:56] INFO recall@10 improved. Best value: 0.1937
+[2025-01-12 17:28:57] INFO Training: Epoch= 33 [recall@10=0.2059 ndcg@10=0.1091 train_loss=5.2975]
+[2025-01-12 17:28:57] INFO Train time: 1.63502s. Valid time: 1.66095s
+[2025-01-12 17:28:57] INFO Training: Epoch= 16 [recall@10=0.1746 ndcg@10=0.0980 train_loss=5.5166]
+[2025-01-12 17:28:57] INFO Train time: 1.67829s. Valid time: 1.71390s
+[2025-01-12 17:28:57] INFO Training: Epoch= 13 [recall@10=0.2063 ndcg@10=0.1105 train_loss=5.5495]
+[2025-01-12 17:28:57] INFO Train time: 1.37878s. Valid time: 1.42804s
+[2025-01-12 17:28:57] INFO recall@10 improved. Best value: 0.2063
+[2025-01-12 17:28:59] INFO Training: Epoch= 17 [recall@10=0.1841 ndcg@10=0.1019 train_loss=5.4987]
+[2025-01-12 17:28:59] INFO Train time: 1.53203s. Valid time: 1.56438s
+[2025-01-12 17:28:59] INFO Training: Epoch= 34 [recall@10=0.2038 ndcg@10=0.1063 train_loss=5.3004]
+[2025-01-12 17:28:59] INFO Train time: 1.81080s. Valid time: 1.83774s
+[2025-01-12 17:28:59] INFO Training: Epoch= 14 [recall@10=0.1810 ndcg@10=0.1040 train_loss=5.5383]
+[2025-01-12 17:28:59] INFO Train time: 1.59864s. Valid time: 1.63168s
+[2025-01-12 17:29:00] INFO Training: Epoch= 18 [recall@10=0.1810 ndcg@10=0.1026 train_loss=5.4885]
+[2025-01-12 17:29:00] INFO Train time: 1.34795s. Valid time: 1.38396s
+[2025-01-12 17:29:00] INFO Training: Epoch= 15 [recall@10=0.1841 ndcg@10=0.0986 train_loss=5.5173]
+[2025-01-12 17:29:00] INFO Train time: 1.37538s. Valid time: 1.41117s
+[2025-01-12 17:29:00] INFO Training: Epoch= 35 [recall@10=0.2017 ndcg@10=0.1090 train_loss=5.2935]
+[2025-01-12 17:29:00] INFO Train time: 1.80224s. Valid time: 1.82737s
+[2025-01-12 17:29:01] INFO Training: Epoch= 19 [recall@10=0.1810 ndcg@10=0.0999 train_loss=5.4853]
+[2025-01-12 17:29:01] INFO Train time: 1.35527s. Valid time: 1.39186s
+[2025-01-12 17:29:02] INFO Training: Epoch= 16 [recall@10=0.1937 ndcg@10=0.1067 train_loss=5.5098]
+[2025-01-12 17:29:02] INFO Train time: 1.64527s. Valid time: 1.67020s
+[2025-01-12 17:29:02] INFO Training: Epoch= 36 [recall@10=0.2229 ndcg@10=0.1149 train_loss=5.2888]
+[2025-01-12 17:29:02] INFO Train time: 1.76816s. Valid time: 1.79524s
+[2025-01-12 17:29:02] INFO recall@10 improved. Best value: 0.2229
+[2025-01-12 17:29:03] INFO Training: Epoch= 20 [recall@10=0.1905 ndcg@10=0.0987 train_loss=5.4644]
+[2025-01-12 17:29:03] INFO Train time: 1.40806s. Valid time: 1.44131s
+[2025-01-12 17:29:03] INFO Training: Epoch= 17 [recall@10=0.1841 ndcg@10=0.1104 train_loss=5.4898]
+[2025-01-12 17:29:03] INFO Train time: 1.54908s. Valid time: 1.57852s
+[2025-01-12 17:29:04] INFO Training: Epoch= 37 [recall@10=0.2144 ndcg@10=0.1134 train_loss=5.2814]
+[2025-01-12 17:29:04] INFO Train time: 1.76870s. Valid time: 1.79743s
+[2025-01-12 17:29:04] INFO Training: Epoch= 21 [recall@10=0.1873 ndcg@10=0.1050 train_loss=5.4558]
+[2025-01-12 17:29:04] INFO Train time: 1.32342s. Valid time: 1.36271s
+[2025-01-12 17:29:05] INFO Training: Epoch= 18 [recall@10=0.1905 ndcg@10=0.1063 train_loss=5.4795]
+[2025-01-12 17:29:05] INFO Train time: 1.37930s. Valid time: 1.41962s
+[2025-01-12 17:29:06] INFO Training: Epoch= 22 [recall@10=0.1841 ndcg@10=0.1030 train_loss=5.4376]
+[2025-01-12 17:29:06] INFO Train time: 1.39194s. Valid time: 1.42438s
+[2025-01-12 17:29:06] INFO Training: Epoch= 38 [recall@10=0.2059 ndcg@10=0.1101 train_loss=5.2682]
+[2025-01-12 17:29:06] INFO Train time: 1.75896s. Valid time: 1.78381s
+[2025-01-12 17:29:06] INFO Training: Epoch= 19 [recall@10=0.2222 ndcg@10=0.1219 train_loss=5.4725]
+[2025-01-12 17:29:06] INFO Train time: 1.41615s. Valid time: 1.45266s
+[2025-01-12 17:29:06] INFO recall@10 improved. Best value: 0.2222
+[2025-01-12 17:29:07] INFO Training: Epoch= 23 [recall@10=0.1810 ndcg@10=0.1057 train_loss=5.4277]
+[2025-01-12 17:29:07] INFO Train time: 1.36508s. Valid time: 1.39753s
+[2025-01-12 17:29:08] INFO Training: Epoch= 39 [recall@10=0.2081 ndcg@10=0.1108 train_loss=5.2715]
+[2025-01-12 17:29:08] INFO Train time: 1.75780s. Valid time: 1.78304s
+[2025-01-12 17:29:08] INFO Training: Epoch= 20 [recall@10=0.1810 ndcg@10=0.0988 train_loss=5.4679]
+[2025-01-12 17:29:08] INFO Train time: 1.49503s. Valid time: 1.53333s
+[2025-01-12 17:29:08] INFO Training: Epoch= 24 [recall@10=0.1778 ndcg@10=0.0977 train_loss=5.4112]
+[2025-01-12 17:29:08] INFO Train time: 1.36803s. Valid time: 1.39704s
+[2025-01-12 17:29:09] INFO Training: Epoch= 40 [recall@10=0.2038 ndcg@10=0.1096 train_loss=5.2596]
+[2025-01-12 17:29:09] INFO Train time: 1.68761s. Valid time: 1.71626s
+[2025-01-12 17:29:09] INFO Training: Epoch= 21 [recall@10=0.2000 ndcg@10=0.1037 train_loss=5.4454]
+[2025-01-12 17:29:09] INFO Train time: 1.52016s. Valid time: 1.56035s
+[2025-01-12 17:29:10] INFO Training: Epoch= 25 [recall@10=0.1873 ndcg@10=0.1016 train_loss=5.3996]
+[2025-01-12 17:29:10] INFO Train time: 1.35361s. Valid time: 1.39070s
+[2025-01-12 17:29:11] INFO Training: Epoch= 22 [recall@10=0.2095 ndcg@10=0.1115 train_loss=5.4352]
+[2025-01-12 17:29:11] INFO Train time: 1.44666s. Valid time: 1.47771s
+[2025-01-12 17:29:11] INFO Training: Epoch= 41 [recall@10=0.2123 ndcg@10=0.1066 train_loss=5.2555]
+[2025-01-12 17:29:11] INFO Train time: 1.62775s. Valid time: 1.65454s
+[2025-01-12 17:29:11] INFO Training: Epoch= 26 [recall@10=0.1746 ndcg@10=0.0948 train_loss=5.3950]
+[2025-01-12 17:29:11] INFO Train time: 1.40355s. Valid time: 1.43445s
+[2025-01-12 17:29:12] INFO Training: Epoch= 23 [recall@10=0.1810 ndcg@10=0.1011 train_loss=5.4304]
+[2025-01-12 17:29:12] INFO Train time: 1.50717s. Valid time: 1.55657s
+[2025-01-12 17:29:13] INFO Training: Epoch= 27 [recall@10=0.1778 ndcg@10=0.1004 train_loss=5.3902]
+[2025-01-12 17:29:13] INFO Train time: 1.45179s. Valid time: 1.48056s
+[2025-01-12 17:29:13] INFO Training: Epoch= 42 [recall@10=0.2102 ndcg@10=0.1177 train_loss=5.2479]
+[2025-01-12 17:29:13] INFO Train time: 1.88337s. Valid time: 1.91303s
+[2025-01-12 17:29:14] INFO Training: Epoch= 28 [recall@10=0.1714 ndcg@10=0.0896 train_loss=5.3795]
+[2025-01-12 17:29:14] INFO Train time: 1.38161s. Valid time: 1.42054s
+[2025-01-12 17:29:14] INFO Training: Epoch= 24 [recall@10=0.2000 ndcg@10=0.1042 train_loss=5.4231]
+[2025-01-12 17:29:14] INFO Train time: 1.70114s. Valid time: 1.73396s
+[2025-01-12 17:29:15] INFO Training: Epoch= 43 [recall@10=0.2251 ndcg@10=0.1193 train_loss=5.2415]
+[2025-01-12 17:29:15] INFO Train time: 1.75753s. Valid time: 1.78232s
+[2025-01-12 17:29:15] INFO recall@10 improved. Best value: 0.2251
+[2025-01-12 17:29:16] INFO Training: Epoch= 29 [recall@10=0.2032 ndcg@10=0.1035 train_loss=5.3666]
+[2025-01-12 17:29:16] INFO Train time: 1.42678s. Valid time: 1.45787s
+[2025-01-12 17:29:16] INFO recall@10 improved. Best value: 0.2032
+[2025-01-12 17:29:16] INFO Training: Epoch= 25 [recall@10=0.1905 ndcg@10=0.1011 train_loss=5.4122]
+[2025-01-12 17:29:16] INFO Train time: 1.33577s. Valid time: 1.37527s
+[2025-01-12 17:29:16] INFO Training: Epoch= 44 [recall@10=0.2123 ndcg@10=0.1121 train_loss=5.2385]
+[2025-01-12 17:29:16] INFO Train time: 1.76347s. Valid time: 1.80110s
+[2025-01-12 17:29:17] INFO Training: Epoch= 30 [recall@10=0.1905 ndcg@10=0.0957 train_loss=5.3579]
+[2025-01-12 17:29:17] INFO Train time: 1.42956s. Valid time: 1.46242s
+[2025-01-12 17:29:17] INFO Training: Epoch= 26 [recall@10=0.1968 ndcg@10=0.1106 train_loss=5.4015]
+[2025-01-12 17:29:17] INFO Train time: 1.43009s. Valid time: 1.46481s
+[2025-01-12 17:29:18] INFO Training: Epoch= 45 [recall@10=0.2102 ndcg@10=0.1155 train_loss=5.2309]
+[2025-01-12 17:29:18] INFO Train time: 1.71624s. Valid time: 1.74299s
+[2025-01-12 17:29:18] INFO Training: Epoch= 27 [recall@10=0.1937 ndcg@10=0.1049 train_loss=5.3917]
+[2025-01-12 17:29:18] INFO Train time: 1.38510s. Valid time: 1.42437s
+[2025-01-12 17:29:19] INFO Training: Epoch= 31 [recall@10=0.1873 ndcg@10=0.0971 train_loss=5.3577]
+[2025-01-12 17:29:19] INFO Train time: 1.55034s. Valid time: 1.58346s
+[2025-01-12 17:29:20] INFO Training: Epoch= 28 [recall@10=0.1873 ndcg@10=0.1047 train_loss=5.3865]
+[2025-01-12 17:29:20] INFO Train time: 1.34081s. Valid time: 1.37212s
+[2025-01-12 17:29:20] INFO Training: Epoch= 46 [recall@10=0.1996 ndcg@10=0.1089 train_loss=5.2226]
+[2025-01-12 17:29:20] INFO Train time: 1.71081s. Valid time: 1.74113s
+[2025-01-12 17:29:20] INFO Training: Epoch= 32 [recall@10=0.1714 ndcg@10=0.0938 train_loss=5.3581]
+[2025-01-12 17:29:20] INFO Train time: 1.40897s. Valid time: 1.44397s
+[2025-01-12 17:29:21] INFO Training: Epoch= 29 [recall@10=0.1968 ndcg@10=0.1053 train_loss=5.3849]
+[2025-01-12 17:29:21] INFO Train time: 1.45145s. Valid time: 1.48239s
+[2025-01-12 17:29:21] INFO Training: Epoch= 33 [recall@10=0.1714 ndcg@10=0.0900 train_loss=5.3404]
+[2025-01-12 17:29:21] INFO Train time: 1.38286s. Valid time: 1.42063s
+[2025-01-12 17:29:22] INFO Training: Epoch= 47 [recall@10=0.2144 ndcg@10=0.1163 train_loss=5.2221]
+[2025-01-12 17:29:22] INFO Train time: 1.65635s. Valid time: 1.68242s
+[2025-01-12 17:29:23] INFO Training: Epoch= 30 [recall@10=0.2095 ndcg@10=0.1100 train_loss=5.3737]
+[2025-01-12 17:29:23] INFO Train time: 1.36194s. Valid time: 1.40061s
+[2025-01-12 17:29:23] INFO Training: Epoch= 34 [recall@10=0.1905 ndcg@10=0.1008 train_loss=5.3371]
+[2025-01-12 17:29:23] INFO Train time: 1.40948s. Valid time: 1.44814s
+[2025-01-12 17:29:23] INFO Training: Epoch= 48 [recall@10=0.2081 ndcg@10=0.1105 train_loss=5.2142]
+[2025-01-12 17:29:23] INFO Train time: 1.56349s. Valid time: 1.58847s
+[2025-01-12 17:29:24] INFO Training: Epoch= 31 [recall@10=0.2000 ndcg@10=0.1051 train_loss=5.3591]
+[2025-01-12 17:29:24] INFO Train time: 1.35728s. Valid time: 1.38283s
+[2025-01-12 17:29:24] INFO Training: Epoch= 35 [recall@10=0.1714 ndcg@10=0.0980 train_loss=5.3259]
+[2025-01-12 17:29:24] INFO Train time: 1.34388s. Valid time: 1.37622s
+[2025-01-12 17:29:25] INFO Training: Epoch= 49 [recall@10=0.2123 ndcg@10=0.1116 train_loss=5.2084]
+[2025-01-12 17:29:25] INFO Train time: 1.56246s. Valid time: 1.58768s
+[2025-01-12 17:29:25] INFO Training: Epoch= 32 [recall@10=0.1873 ndcg@10=0.1033 train_loss=5.3463]
+[2025-01-12 17:29:25] INFO Train time: 1.34632s. Valid time: 1.37397s
+[2025-01-12 17:29:26] INFO Training: Epoch= 36 [recall@10=0.1968 ndcg@10=0.1019 train_loss=5.3295]
+[2025-01-12 17:29:26] INFO Train time: 1.36283s. Valid time: 1.40083s
+[2025-01-12 17:29:26] INFO Training: Epoch= 50 [recall@10=0.1975 ndcg@10=0.1086 train_loss=5.2006]
+[2025-01-12 17:29:26] INFO Train time: 1.56116s. Valid time: 1.58623s
+[2025-01-12 17:29:27] INFO Training: Epoch= 33 [recall@10=0.2127 ndcg@10=0.1128 train_loss=5.3383]
+[2025-01-12 17:29:27] INFO Train time: 1.33241s. Valid time: 1.36733s
+[2025-01-12 17:29:27] INFO Training: Epoch= 37 [recall@10=0.1778 ndcg@10=0.0951 train_loss=5.3184]
+[2025-01-12 17:29:27] INFO Train time: 1.36719s. Valid time: 1.40205s
+[2025-01-12 17:29:28] INFO Training: Epoch= 51 [recall@10=0.2144 ndcg@10=0.1148 train_loss=5.1960]
+[2025-01-12 17:29:28] INFO Train time: 1.50655s. Valid time: 1.53182s
+[2025-01-12 17:29:28] INFO Training: Epoch= 34 [recall@10=0.2159 ndcg@10=0.1174 train_loss=5.3351]
+[2025-01-12 17:29:28] INFO Train time: 1.41153s. Valid time: 1.44732s
+[2025-01-12 17:29:29] INFO Training: Epoch= 38 [recall@10=0.1841 ndcg@10=0.0993 train_loss=5.3018]
+[2025-01-12 17:29:29] INFO Train time: 1.47078s. Valid time: 1.51176s
+[2025-01-12 17:29:29] INFO Training: Epoch= 52 [recall@10=0.1932 ndcg@10=0.1032 train_loss=5.1943]
+[2025-01-12 17:29:29] INFO Train time: 1.57788s. Valid time: 1.60382s
+[2025-01-12 17:29:30] INFO Training: Epoch= 35 [recall@10=0.2190 ndcg@10=0.1143 train_loss=5.3222]
+[2025-01-12 17:29:30] INFO Train time: 1.36343s. Valid time: 1.39878s
+[2025-01-12 17:29:30] INFO Training: Epoch= 39 [recall@10=0.1937 ndcg@10=0.0985 train_loss=5.2987]
+[2025-01-12 17:29:30] INFO Train time: 1.48674s. Valid time: 1.52395s
+[2025-01-12 17:29:31] INFO Training: Epoch= 53 [recall@10=0.1975 ndcg@10=0.1141 train_loss=5.1873]
+[2025-01-12 17:29:31] INFO Train time: 1.66299s. Valid time: 1.68785s
+[2025-01-12 17:29:31] INFO Training: Epoch= 36 [recall@10=0.2095 ndcg@10=0.1064 train_loss=5.3207]
+[2025-01-12 17:29:31] INFO Train time: 1.48404s. Valid time: 1.52029s
+[2025-01-12 17:29:32] INFO Training: Epoch= 40 [recall@10=0.1746 ndcg@10=0.0962 train_loss=5.2981]
+[2025-01-12 17:29:32] INFO Train time: 1.48467s. Valid time: 1.52437s
+[2025-01-12 17:29:33] INFO Training: Epoch= 37 [recall@10=0.2159 ndcg@10=0.1065 train_loss=5.3067]
+[2025-01-12 17:29:33] INFO Train time: 1.47705s. Valid time: 1.50550s
+[2025-01-12 17:29:33] INFO Training: Epoch= 54 [recall@10=0.2144 ndcg@10=0.1117 train_loss=5.1756]
+[2025-01-12 17:29:33] INFO Train time: 1.74933s. Valid time: 1.77447s
+[2025-01-12 17:29:33] INFO Training: Epoch= 41 [recall@10=0.1873 ndcg@10=0.1001 train_loss=5.2865]
+[2025-01-12 17:29:33] INFO Train time: 1.58144s. Valid time: 1.62483s
+[2025-01-12 17:29:34] INFO Training: Epoch= 38 [recall@10=0.2190 ndcg@10=0.1110 train_loss=5.2978]
+[2025-01-12 17:29:34] INFO Train time: 1.40378s. Valid time: 1.43932s
+[2025-01-12 17:29:35] INFO Training: Epoch= 55 [recall@10=0.2102 ndcg@10=0.1154 train_loss=5.1807]
+[2025-01-12 17:29:35] INFO Train time: 1.83643s. Valid time: 1.87223s
+[2025-01-12 17:29:35] INFO Training: Epoch= 42 [recall@10=0.1873 ndcg@10=0.0994 train_loss=5.2847]
+[2025-01-12 17:29:35] INFO Train time: 1.86795s. Valid time: 1.91030s
+[2025-01-12 17:29:36] INFO Training: Epoch= 39 [recall@10=0.2127 ndcg@10=0.1111 train_loss=5.2971]
+[2025-01-12 17:29:36] INFO Train time: 1.43076s. Valid time: 1.46639s
+[2025-01-12 17:29:36] INFO Early stopped. recall@10 didn't improve for 20 epochs.
+[2025-01-12 17:29:36] INFO The best score of recall@10 is 0.2222 at 19
+[2025-01-12 17:29:36] INFO Best model checkpoiny saved in ./metadata/model_checkpoint/shadow_model/movielens/BERT4Rec/split/train/nonmember_model_2.
+[2025-01-12 17:29:36] INFO Shadow model recommendation performance:
+[2025-01-12 17:29:36] INFO Testing:  [recall@10=0.2159 precision@10=0.0216 map@10=0.0605 ndcg@10=0.0963 mrr@10=0.0605 hit@10=0.2159]
+[2025-01-12 17:29:36] INFO Training: Epoch= 56 [recall@10=0.1975 ndcg@10=0.1070 train_loss=5.1720]
+[2025-01-12 17:29:36] INFO Train time: 1.59912s. Valid time: 1.62670s
+[2025-01-12 17:29:37] INFO Training: Epoch= 43 [recall@10=0.1746 ndcg@10=0.0931 train_loss=5.2731]
+[2025-01-12 17:29:37] INFO Train time: 1.91011s. Valid time: 1.96338s
+[2025-01-12 17:29:38] INFO Training: Epoch= 57 [recall@10=0.1953 ndcg@10=0.1091 train_loss=5.1713]
+[2025-01-12 17:29:38] INFO Train time: 1.74713s. Valid time: 1.77519s
+[2025-01-12 17:29:39] INFO Training: Epoch= 44 [recall@10=0.1810 ndcg@10=0.0939 train_loss=5.2685]
+[2025-01-12 17:29:39] INFO Train time: 1.80555s. Valid time: 1.84321s
+[2025-01-12 17:29:40] INFO Training: Epoch= 58 [recall@10=0.2081 ndcg@10=0.1148 train_loss=5.1610]
+[2025-01-12 17:29:40] INFO Train time: 1.69412s. Valid time: 1.72092s
+[2025-01-12 17:29:41] INFO Training: Epoch= 45 [recall@10=0.1810 ndcg@10=0.0954 train_loss=5.2624]
+[2025-01-12 17:29:41] INFO Train time: 1.58739s. Valid time: 1.62745s
+[2025-01-12 17:29:42] INFO End of the code.
+[2025-01-12 17:29:42] INFO Training: Epoch= 59 [recall@10=0.2102 ndcg@10=0.1164 train_loss=5.1554]
+[2025-01-12 17:29:42] INFO Train time: 1.76300s. Valid time: 1.79112s
+[2025-01-12 17:29:42] INFO Training: Epoch= 46 [recall@10=0.1810 ndcg@10=0.0949 train_loss=5.2572]
+[2025-01-12 17:29:42] INFO Train time: 1.62510s. Valid time: 1.66394s
+[2025-01-12 17:29:43] INFO Training: Epoch= 60 [recall@10=0.2081 ndcg@10=0.1122 train_loss=5.1622]
+[2025-01-12 17:29:43] INFO Train time: 1.61810s. Valid time: 1.64339s
+[2025-01-12 17:29:44] INFO Training: Epoch= 47 [recall@10=0.1683 ndcg@10=0.0846 train_loss=5.2540]
+[2025-01-12 17:29:44] INFO Train time: 1.36806s. Valid time: 1.39874s
+[2025-01-12 17:29:45] INFO Training: Epoch= 61 [recall@10=0.2123 ndcg@10=0.1165 train_loss=5.1432]
+[2025-01-12 17:29:45] INFO Train time: 1.54516s. Valid time: 1.57048s
+[2025-01-12 17:29:45] INFO Training: Epoch= 48 [recall@10=0.1873 ndcg@10=0.0964 train_loss=5.2429]
+[2025-01-12 17:29:45] INFO Train time: 1.40356s. Valid time: 1.43724s
+[2025-01-12 17:29:47] INFO Training: Epoch= 49 [recall@10=0.1873 ndcg@10=0.0920 train_loss=5.2438]
+[2025-01-12 17:29:47] INFO Train time: 1.39322s. Valid time: 1.42276s
+[2025-01-12 17:29:47] INFO Early stopped. recall@10 didn't improve for 20 epochs.
+[2025-01-12 17:29:47] INFO The best score of recall@10 is 0.2032 at 29
+[2025-01-12 17:29:47] INFO Best model checkpoiny saved in ./metadata/model_checkpoint/shadow_model/movielens/BERT4Rec/split/train/nonmember_model_10.
+[2025-01-12 17:29:47] INFO Shadow model recommendation performance:
+[2025-01-12 17:29:47] INFO Testing:  [recall@10=0.2127 precision@10=0.0213 map@10=0.0721 ndcg@10=0.1047 mrr@10=0.0721 hit@10=0.2127]
+[2025-01-12 17:29:47] INFO Training: Epoch= 62 [recall@10=0.1996 ndcg@10=0.1108 train_loss=5.1473]
+[2025-01-12 17:29:47] INFO Train time: 1.70531s. Valid time: 1.73235s
+[2025-01-12 17:29:48] INFO Training: Epoch= 63 [recall@10=0.1975 ndcg@10=0.1117 train_loss=5.1423]
+[2025-01-12 17:29:48] INFO Train time: 1.64193s. Valid time: 1.66713s
+[2025-01-12 17:29:48] INFO Early stopped. recall@10 didn't improve for 20 epochs.
+[2025-01-12 17:29:48] INFO The best score of recall@10 is 0.2251 at 43
+[2025-01-12 17:29:48] INFO Best model checkpoiny saved in ./metadata/model_checkpoint/target_model/movielens/BERT4Rec/split/train/model_1.
+[2025-01-12 17:29:48] INFO Target model recommendation performance:
+[2025-01-12 17:29:48] INFO Testing:  [recall@10=0.1996 precision@10=0.0200 map@10=0.0661 ndcg@10=0.0968 mrr@10=0.0661 hit@10=0.1996]
+[2025-01-12 17:29:50] INFO End of the code.
+[2025-01-12 17:29:52] INFO End of the code.

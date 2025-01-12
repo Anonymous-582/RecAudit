@@ -62,7 +62,7 @@ def extract_features_recmia(
 
 if __name__ == '__main__':
     argparser = argparse.ArgumentParser("Baseline")
-    argparser.add_argument("--dataset", type=str, default='ml-100k', help='Datasets')
+    argparser.add_argument("--dataset", type=str, default='movielens', help='Datasets')
     argparser.add_argument("--target_model", type=str, default='BERT4Rec',help='The type of target model')
     argparser.add_argument("--shadow_model", type=str, default='BERT4Rec',help='The type of shadow model')
     argparser.add_argument("--model_seed", type=int, default=1, help='Seed for training RS')
